@@ -860,7 +860,7 @@ body.rtl-active .hero-subtitle {
     --page-text: #dbe9ff;
     --muted-text: #9fbfe8;
     --accent: #4da6ff;
-    --card-bg: rgba(255, 255, 255, 0.02);
+    --card-bg: rgb(11, 35, 83);
     --card-border-color: rgba(255, 255, 255, 0.06);
     --card-shadow-color: rgba(0, 0, 0, 0.6);
     --card-back: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));

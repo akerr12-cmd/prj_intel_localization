@@ -299,44 +299,49 @@
     </section>
 
 
-    <!-- ADDED: SUBSCRIPTION FORM -->
-    <section class="container my-5">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-
-          <h3 class="text-center mb-3 fw-bold">Subscribe to Intel Sustainability Updates</h3>
-
-          <form aria-label="Subscription form">
-            <div class="mb-3">
-              <label for="email" class="form-label">Email address</label>
-              <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100">
-              Subscribe
-            </button>
-          </form>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ADDED: BOOTSTRAP MODAL -->
+    <!-- Subscription Button with Modal popup -->
     <div class="text-center my-4">
       <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#intelModal">
-        Learn About Intel Localization
+        Subscribe to Intel Sustainability Updates
       </button>
     </div>
 
     <div class="modal fade" id="intelModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-4">
-          <h3 class="mb-3 fw-bold">Intel Localization</h3>
-          <p>
-            Intel adapts content for global audiences through translation, cultural review, and accessibility
-            standards.
-            This ensures clarity, accuracy, and inclusivity across all regions.
-          </p>
+          <div class="w-100">
+
+            <h3 class="text-center mb-3 fw-bold">Subscribe to Intel Sustainability Updates</h3>
+
+            <form aria-label="Subscription form">
+
+              <!-- First + Last Name -->
+              <div class="row mb-3">
+                <div class="col">
+                  <label for="firstName" class="form-label">First Name</label>
+                  <input type="text" id="firstName" class="form-control" placeholder="First name" required>
+                </div>
+
+                <div class="col">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <input type="text" id="lastName" class="form-control" placeholder="Last name" required>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">
+                Subscribe
+              </button>
+
+            </form>
+
+
+          </div>
         </div>
       </div>
     </div>

@@ -162,6 +162,7 @@ body::after {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   position: relative;
+  width: 100%;
 }
 
 .timeline::before {
@@ -459,6 +460,120 @@ body::after {
 .footer-mobile {
   display: none;
 }
+
+/* ----------------------------------------------------------
+   ✨ ADDED: Learn More link styling (for 3‑column section)
+   ---------------------------------------------------------- */
+.learn-more-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.learn-more-link:hover,
+.learn-more-link:focus {
+  text-decoration: underline;
+  color: #004b87; /* slightly darker accent for contrast */
+}
+
+
+/* ----------------------------------------------------------
+   ✨ ADDED: RTL overrides for custom components
+   These ensure your flip cards + timeline behave correctly
+   when dir="rtl" is applied.
+   ---------------------------------------------------------- */
+body.rtl-active .timeline {
+  direction: rtl;
+}
+
+body.rtl-active .timeline-controls {
+  direction: rtl;
+}
+
+body.rtl-active .timeline-btn.left-btn {
+  transform: scaleX(-1); /* flips arrow direction */
+}
+
+body.rtl-active .timeline-btn.right-btn {
+  transform: scaleX(-1);
+}
+
+/* Flip card RTL adjustments */
+body.rtl-active .flip-front,
+body.rtl-active .flip-back {
+  text-align: right;
+}
+
+body.rtl-active .flip-back p {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+
+/* ----------------------------------------------------------
+   ✨ ADDED: Modal refinements for Intel aesthetic
+   ---------------------------------------------------------- */
+.modal-content {
+  border-radius: 14px;
+  border: 1px solid var(--card-border-color);
+  background: var(--card-bg);
+  box-shadow: 0 12px 32px rgba(0, 40, 120, 0.15);
+}
+
+.modal-content h3 {
+  color: var(--h2-color);
+}
+
+.modal-content p {
+  color: var(--page-text);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+
+/* ----------------------------------------------------------
+   ✨ ADDED: Footer link hover improvements
+   ---------------------------------------------------------- */
+footer a:hover,
+footer a:focus {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+
+/* ----------------------------------------------------------
+   ✨ ADDED: RTL footer alignment
+   ---------------------------------------------------------- */
+body.rtl-active footer .container {
+  direction: rtl;
+}
+
+
+/* ----------------------------------------------------------
+   ✨ ADDED: RTL-friendly form alignment
+   ---------------------------------------------------------- */
+body.rtl-active form {
+  text-align: right;
+}
+
+body.rtl-active label {
+  float: right;
+}
+
+body.rtl-active input {
+  direction: rtl;
+}
+
+
+/* ----------------------------------------------------------
+   ✨ ADDED: Optional — RTL adjustments for hero text
+   ---------------------------------------------------------- */
+body.rtl-active .hero-title,
+body.rtl-active .hero-subtitle {
+  text-align: right;
+}
+
 
 @media (max-width: 1024px) {
   .footer-desktop {

@@ -461,6 +461,30 @@ body::after {
   display: none;
 }
 
+/* ✨ NEW: Custom row class */
+.row.localization {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* replaces g-4 */
+  flex-wrap: wrap;
+}
+
+/* ✨ NEW: Custom column class */
+.col-localization {
+  flex: 0 0 33.333%;   /* behaves like col-md-4 */
+  max-width: 33.333%;
+  padding: 0 1rem;
+}
+
+/* Responsive: stack columns on mobile */
+@media (max-width: 768px) {
+  .col-localization {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+
 /* ----------------------------------------------------------
    ✨ ADDED: Learn More link styling (for 3‑column section)
    ---------------------------------------------------------- */

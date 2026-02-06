@@ -137,17 +137,4 @@
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
 
   applyDirection();
-})();
-
-// ---------- CAROUSEL MODAL INITIALIZATION ----------
-document.addEventListener('DOMContentLoaded', function () {
-  const modalEl = document.getElementById('timelineCarouselModal');
-  const carouselEl = document.getElementById('timelineCarousel');
-  const carousel = new bootstrap.Carousel(carouselEl);
-
-  modalEl.addEventListener('show.bs.modal', function (event) {
-    const trigger = event.relatedTarget;
-    const slideIndex = trigger.getAttribute('data-slide');
-    carousel.to(slideIndex);
-  });
 });

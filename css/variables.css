@@ -34,4 +34,13 @@
   --p-size: 1.3rem;
   --p-line-height: 1.7;
   --p-size-mobile: 1rem; /* mobile fallback */
+
+  /* Pattern background variables */
+  --section-bg: #f5f7fa;
+  --pattern-line: rgba(0, 0, 0, 0.06);
+
+  /* Subscription container variables */
+  --sub-bg: rgba(255, 255, 255, 0.65);
+  --sub-border: rgba(0, 0, 0, 0.12);
+  --sub-shadow: rgba(0, 0, 0, 0.08);
 }

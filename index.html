@@ -265,18 +265,20 @@
     </div>
 
 
-    <!-- ADDED: THREE-COLUMN LOCALIZATION SECTION -->
-    <!-- UPDATED: THREE-COLUMN LOCALIZATION SECTION (custom classes added) -->
-    <section class="container localization">
+    <!-- TEST: LOCALIZATION SECTION WITH TOP BORDER -->
+    <section class="localization-section">
+      <div class="localization-top-border"></div>
+      <div class="localization-background-pattern"></div>
 
-      <div class="row text-center localization">
+      <div class="localization-container">
 
-        <div class="col-localization">
-          <div class="localization-header">
-            <img src="img/icon_rise_strategy.png" alt="RISE Strategy icon" width="64" class="mb-3">
-            <h2 class="fw-bold">RISE Strategy</h2>
+        <div class="localization-column">
+          <h3 class="localization-heading">RISE Strategy</h3>
+          <div class="stat-display">
+            <div class="stat-number" data-target="2030">0</div>
+            <div class="stat-label">Target Year</div>
           </div>
-          <p>
+          <p class="localization-text">
             Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy,
             Intel sets ambitious 2030 goals, including driving industry-wide
             progress on climate action, water stewardship, and waste reduction.
@@ -284,12 +286,15 @@
           <a href="#" class="learn-more-link">Learn More →</a>
         </div>
 
-        <div class="col-localization">
-          <div class="localization-header">
-            <img src="img/icon_commitment.png" alt="Commitment icon" width="64" class="mb-3">
-            <h2 class="fw-bold">Commitment</h2>
+        <div class="localization-divider"></div>
+
+        <div class="localization-column">
+          <h3 class="localization-heading">Commitment</h3>
+          <div class="stat-display">
+            <div class="stat-number" data-target="99" data-suffix="%">0%</div>
+            <div class="stat-label">Renewable Electricity</div>
           </div>
-          <p>
+          <p class="localization-text">
             In 2022, Intel pledged to achieve net-zero greenhouse gas emissions
             (Scope 1 and 2) by 2040. This commitment builds on decades of
             environmental initiatives and partnerships across the semiconductor
@@ -298,12 +303,15 @@
           <a href="#" class="learn-more-link">Learn More →</a>
         </div>
 
-        <div class="col-localization">
-          <div class="localization-header">
-            <img src="img/icon_water_waste.png" alt="Water & Waste icon" width="64" class="mb-3">
-            <h2 class="fw-bold">Water & Waste</h2>
+        <div class="localization-divider"></div>
+
+        <div class="localization-column">
+          <h3 class="localization-heading">Water & Waste</h3>
+          <div class="stat-display">
+            <div class="stat-number" data-target="10" data-suffix="B+">0B+</div>
+            <div class="stat-label">Gallons Conserved Annually</div>
           </div>
-          <p>
+          <p class="localization-text">
             Intel conserves billions of gallons of water annually and collaborates
             with local communities to restore watersheds. Intel also upcycles and
             recycles materials to reduce waste and advance a circular economy.
@@ -315,12 +323,19 @@
     </section>
 
 
-    <!-- Subscription Button with Modal popup -->
-    <div class="text-center my-5">
-      <button class="btn btn-outline-primary subscribe-btn" data-bs-toggle="modal" data-bs-target="#intelModal">
-        Subscribe to Intel Sustainability Updates
-      </button>
-    </div>
+    <!-- SUBSCRIPTION SECTION -->
+    <section class="subscription-section">
+      <div class="subscription-divider">
+        <div class="divider-line"></div>
+        <div class="divider-glow"></div>
+      </div>
+
+      <div class="subscription-content">
+        <button class="btn btn-outline-primary subscribe-btn" data-bs-toggle="modal" data-bs-target="#intelModal">
+          Subscribe to Intel Sustainability Updates
+        </button>
+      </div>
+    </section>
 
     <div class="modal fade" id="intelModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">

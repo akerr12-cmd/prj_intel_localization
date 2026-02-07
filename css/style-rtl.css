@@ -106,3 +106,47 @@ body.rtl-active footer a {
   margin-left: 18px;
   margin-right: 0;
 }
+
+/* ============================
+   LOCALIZATION SECTION
+   ============================ */
+body.rtl-active .localization-container {
+  direction: rtl;
+}
+
+body.rtl-active .localization-column {
+  text-align: right;
+}
+
+body.rtl-active .learn-more-link:hover {
+  transform: translateX(-4px);
+}
+
+body.rtl-active .stat-display {
+  text-align: right;
+}
+
+body.rtl-active .stat-number,
+body.rtl-active .stat-label {
+  text-align: right;
+}
+
+/* ============================
+   LOCALIZATION LANGUAGE TOGGLE
+   ============================ */
+body.rtl-active .lang-toggle-btn {
+  flex-direction: row-reverse;
+}
+
+body.rtl-active .language-options-grid {
+  direction: rtl;
+}
+
+body.rtl-active .lang-option {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+body.rtl-active .lang-option:hover {
+  transform: translateY(-2px);
+}

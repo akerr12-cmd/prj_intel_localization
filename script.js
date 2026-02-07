@@ -243,3 +243,59 @@
 })();
 
 
+// ---------- Animated Statistics ----------
+(function () {
+  const statNumbers = document.querySelectorAll('.stat-number');
+
+  if (statNumbers.length === 0) return;
+
+  // Animation function
+  function animateValue(element, start, end, duration, suffix = '') {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+
+      // Easing function (ease-out cubic)
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const currentValue = Math.floor(easeOut * (end - start) + start);
+
+      element.textContent = currentValue + suffix;
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        element.classList.remove('animating');
+      }
+    };
+
+    element.classList.add('animating');
+    window.requestAnimationFrame(step);
+  }
+
+  // Intersection Observer to trigger animation on scroll
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        const target = parseInt(entry.target.dataset.target);
+        const suffix = entry.target.dataset.suffix || '';
+        const startValue = 0;
+
+        // Mark as animated so it only runs once
+        entry.target.dataset.animated = 'true';
+
+        // Start animation with 2 second duration
+        animateValue(entry.target, startValue, target, 2000, suffix);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all stat numbers
+  statNumbers.forEach(stat => observer.observe(stat));
+})();
+

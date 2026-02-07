@@ -31,7 +31,8 @@
     box-shadow: 0 0 24px var(--card-shadow-color);
   }
 
-  .flip-front, .flip-back {
+  .flip-front,
+  .flip-back {
     background-color: var(--card-darkbg);
     border: 1px solid var(--card-border-color);
     box-shadow: 0 0 20px var(--darkmode-glow);

@@ -177,6 +177,14 @@
   }
 
   /* Subscription section dark mode */
+  .subscription-heading {
+    color: var(--intel-lgtblue);
+  }
+
+  .subscription-subheading {
+    color: var(--muted-text);
+  }
+
   .subscription-section .divider-line {
     background: linear-gradient(
       90deg,

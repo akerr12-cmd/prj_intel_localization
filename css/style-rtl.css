@@ -150,3 +150,11 @@ body.rtl-active .lang-option {
 body.rtl-active .lang-option:hover {
   transform: translateY(-2px);
 }
+
+/* ============================
+   SUBSCRIPTION SECTION
+   ============================ */
+body.rtl-active .subscription-heading,
+body.rtl-active .subscription-subheading {
+  text-align: right;
+}

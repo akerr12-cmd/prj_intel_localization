@@ -2,6 +2,15 @@
    FOOTER
    ============================ */
 
+footer {
+  background-color: #1a1a1a;
+}
+
+footer p {
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+}
+
 footer a:hover,
 footer a:focus {
   text-decoration: underline;

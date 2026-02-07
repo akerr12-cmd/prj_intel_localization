@@ -1,0 +1,9 @@
+/* ============================
+   FORMS
+   ============================ */
+
+/* Bootstrap danger red for required fields */
+.form-check-input:invalid {
+  outline: 2px solid #dc3545; /* Bootstrap danger red */
+  outline-offset: 2px;
+}

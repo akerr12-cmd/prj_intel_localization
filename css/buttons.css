@@ -1,0 +1,91 @@
+/* ============================
+   BUTTONS & LINKS
+   ============================ */
+
+/* TIMELINE NAVIGATION BUTTONS */
+.timeline-btn {
+  background: #ffffff;
+  border: 2px solid rgba(0, 104, 181, 0.35); /* Intel blue tint */
+  color: #0068b5;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px; /* matches your cards + modal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0; /* hide text when using SVG */
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 40, 120, 0.12);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.timeline-btn:hover {
+  transform: translateY(-4px);
+  background: #f0f7ff;
+  border-color: rgba(0, 104, 181, 0.55);
+  box-shadow: 0 12px 28px rgba(0, 40, 120, 0.18);
+}
+
+.timeline-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 40, 120, 0.12);
+}
+
+.timeline-btn[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* SUBSCRIBE BUTTON */
+.subscribe-btn {
+  padding: 20px 40px; /* bigger click target + visual weight */
+  font-size: 20px; /* slightly larger text */
+  border-width: 2px; /* makes outline buttons feel more intentional */
+  border-radius: 40px; /* optional: gives a premium pill shape */
+  background-color: var(--intel-drkblue);
+  border-color: var(--intel-drkblue);
+  color: black;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.subscribe-btn:hover {
+  background-color: var(--intel-lgtblue);
+  border-color: var(--intel-lgtblue);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 104, 181, 0.35);
+}
+
+.subscribe-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 104, 181, 0.25);
+}
+
+/* LEARN MORE LINKS */
+.learn-more-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    text-decoration 0.2s ease,
+    transform 0.2s ease;
+}
+
+.learn-more-link:hover,
+.learn-more-link:focus {
+  text-decoration: underline;
+  color: #004b87; /* slightly darker accent for contrast */
+}
+
+.learn-more-link:active {
+  color: #003566;
+  transform: translateX(2px);
+}

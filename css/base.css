@@ -1,0 +1,56 @@
+/* ============================
+   GLOBAL RESET & BASE STYLES
+   ============================ */
+
+/* GLOBAL RESET (removes all default browser spacing and makes element sizing predictable so the layout behaves consistently across browsers) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family:
+    "intel-clear",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+  background-color: #deeff3;
+  color: var(--page-text);
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body p {
+  font-size: var(--p-size);
+  line-height: var(--p-line-height);
+  color: var(--page-text);
+}
+
+/* subtle vignette to reduce edge brightness */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.035) 100%
+  );
+  z-index: 9998;
+  mix-blend-mode: multiply;
+}

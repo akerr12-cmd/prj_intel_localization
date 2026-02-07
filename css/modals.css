@@ -1,0 +1,24 @@
+/* ============================
+   MODALS
+   ============================ */
+
+.modal-content {
+  border-radius: 14px;
+  border: 1px solid var(--card-border-color);
+  background: var(--card-bg);
+  box-shadow: 0 12px 32px rgba(0, 40, 120, 0.15);
+}
+
+.modal-content h2 {
+  color: var(--h2-color);
+}
+
+.modal-content h3 {
+  color: var(--h2-color);
+}
+
+.modal-content p {
+  color: var(--page-text);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}

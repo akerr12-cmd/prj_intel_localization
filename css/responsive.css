@@ -1,0 +1,332 @@
+/* ============================
+   RESPONSIVE & ACCESSIBILITY
+   ============================ */
+
+/* TABLET & MOBILE (768px and below) */
+@media (max-width: 768px) {
+  .timeline-controls {
+    display: none;
+  }
+
+  .timeline-wrapper {
+    margin: 1rem 0;
+  }
+
+  .timeline-container {
+    padding: 10px 10px 20px;
+    max-width: 100%;
+  }
+
+  .timeline-indicators {
+    display: none;
+  }
+
+  .timeline-btn {
+    display: none;
+  }
+
+  .timeline {
+    flex-direction: column;
+    overflow-x: visible;
+    padding: 2rem 1.25rem;
+    align-items: center;
+  }
+
+  .cards-section {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 420px;
+    perspective: 1000px;
+  }
+
+  .flip-card {
+    width: 100%;
+    max-width: 100%;
+    height: 420px;
+  }
+
+  .cards-section:hover .flip-card {
+    transform: translateY(-6px);
+  }
+
+  .cards-section:hover .flip-front img {
+    transform: none !important;
+  }
+
+  .cards-section:hover .flip-front h2,
+  .cards-section:hover .flip-front h3 {
+    transform: none !important;
+  }
+
+  .hero-logo {
+    width: 320px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .flip-img-wrap {
+    height: 55%;
+    margin-top: 24px;
+  }
+
+  .subscribe-btn {
+    padding: 16px 32px;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* SMALL MOBILE (420px and below) */
+@media (max-width: 420px) {
+  :root {
+    --p-size: var(--p-size-mobile);
+  }
+
+  .cards-section {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .flip-card {
+    height: auto;
+    min-height: 400px;
+  }
+
+  .flip-front {
+    padding: 1rem;
+  }
+
+  .flip-front .title-frame {
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    margin-bottom: 0.45rem;
+    width: 60%;
+  }
+
+  .flip-img-wrap {
+    height: 50%;
+    margin-top: 20px;
+  }
+
+  .flip-back {
+    padding: 1.5rem;
+    border-radius: var(--card-radius);
+  }
+
+  .flip-back p {
+    max-width: 60ch;
+    font-size: 1.1rem;
+  }
+
+  .subscribe-btn {
+    padding: 14px 28px;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+}
+
+/* 375px Ultra-Small Mobile */
+@media (max-width: 375px) {
+  /* shrinks the global layout spacing and card width */
+  :root {
+    --card-width: 100%;
+    --gap: 16px;
+    --p-size: var(--p-size-mobile);
+  }
+
+  /* Prevents horizontal scrolling */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* HERO (compression so it doesn't dominate the screen) */
+  .hero {
+    padding: 2rem 1rem;
+    min-height: 48vh;
+  }
+
+  .hero-logo {
+    width: 260px;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    max-width: 90%;
+  }
+
+  /* TIMELINE (less padding, smaller gaps, no horizontal overflow) */
+  .timeline {
+    padding: 1.5rem 0.75rem;
+    gap: 1.5rem;
+    max-width: 100vw;
+  }
+
+  .timeline-wrapper {
+    margin: 0.75rem 0;
+  }
+
+  .timeline-container {
+    padding: 8px 8px 20px;
+  }
+
+  .cards-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  /* FLIP CARD (adjusted height for smaller screens) */
+  .flip-card {
+    height: auto;
+    min-height: 300px;
+    width: 100%;
+  }
+
+  .flip-front,
+  .flip-back {
+    padding: 1rem;
+    border-radius: var(--card-radius);
+  }
+
+  .flip-img-wrap {
+    height: 52%;
+    margin-top: 12px;
+  }
+
+  /* TITLE FRAME (everything shrinks proportionally) */
+  .flip-front .title-frame {
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    width: 70%;
+  }
+
+  .flip-front .title-frame h2 {
+    font-size: 32px;
+  }
+
+  .flip-front .title-frame h3 {
+    font-size: 24px;
+  }
+
+  /* BACK TEXT (adjusted for smaller screens) */
+  .flip-back p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 32ch;
+  }
+
+  /* SUBSCRIBE BUTTON (adjusted for smaller screens) */
+  .subscribe-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+  }
+
+  /* Mobile behavior: stack columns only on small screens */
+  .row.localization {
+    flex-wrap: wrap; /* allow stacking on mobile */
+  }
+
+  .col-localization {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* 320px Ultra-Small Mobile (Galaxy Fold, etc.) */
+@media (max-width: 320px) {
+  .hero-logo {
+    width: 240px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* FLIP CARD - more compact for 320px */
+  .flip-card {
+    min-height: 280px;
+  }
+
+  .flip-front,
+  .flip-back {
+    padding: 0.75rem;
+  }
+
+  .flip-img-wrap {
+    height: 43%;
+    margin-top: 24px;
+  }
+
+  .flip-front .title-frame {
+    padding: 0.3rem 0.45rem;
+    width: 75%;
+    margin-bottom: 0.4rem;
+  }
+
+  .flip-front .title-frame h2 {
+    font-size: 28px;
+  }
+
+  .flip-front .title-frame h3 {
+    font-size: 20px;
+  }
+
+  .flip-back p {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    max-width: 28ch;
+  }
+
+  .subscribe-btn {
+    padding: 12px 24px;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+    min-height: 44px; /* Ensures touch target size */
+  }
+}
+
+/* ACCESSIBILITY (disables all animations, transitions, and motion effects for users who have enabled "reduce motion" in their device) */
+@media (prefers-reduced-motion: reduce) {
+  .flip-card,
+  .flip-inner,
+  .flip-front img,
+  .flip-front h2,
+  .flip-front h3 {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .flip-front .title-frame {
+    transition: none !important;
+  }
+
+  body p,
+  .flip-back p {
+    transition: none !important;
+  }
+}
+
+/* Optional: even larger on desktop only */
+@media (min-width: 992px) {
+  .localization-header img {
+    width: 110px;
+  }
+}

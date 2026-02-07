@@ -1,0 +1,198 @@
+/* ============================
+   FLIP CARDS
+   ============================ */
+
+/* FLIP CARD (adjusted height for smaller screens) */
+.flip-card {
+  perspective: 1200px;
+  width: 100%;
+  height: var(--card-height);
+  position: relative;
+  transition:
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.36s ease;
+  will-change: transform, box-shadow;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* Touch support - flip on tap for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .flip-card:active .flip-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+.flip-card:active {
+  transform: translateY(-6px) scale(0.998);
+  transition: transform 0.12s ease;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: var(--card-height);
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* FLIP FRONT & BACK */
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--card-radius);
+  background: var(--intel-lgtblue);
+  border: 1px solid var(--intel-drkblue);
+  box-shadow: 0 8px 20px var(--darkmode-glow);
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transform-origin: center;
+  font-family: var(--IntelFonts);
+}
+
+.flip-front {
+  transform: rotateY(0deg);
+  align-items: center;
+  text-align: center;
+  padding: 1.25rem;
+}
+
+.flip-img-wrap {
+  width: 100%;
+  height: 60%; /* lock the image height */
+  overflow: hidden; /* prevents stretching */
+  flex-shrink: 0; /* prevents collapsing */
+  margin-top: 32px;
+}
+
+.flip-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps image stable */
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  background: var(--card-back);
+  justify-content: center;
+  text-align: center;
+  padding: 1.75rem;
+}
+
+/* TITLE FRAME (inside flip-front) */
+.flip-front .title-frame {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  border: 4px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 6px 18px rgba(3, 24, 56, 0.04);
+  line-height: 1;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  width: 50%;
+  transition:
+    transform 180ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 180ms ease;
+}
+
+.flip-front .title-frame h2,
+.flip-front .title-frame h3 {
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.flip-front .title-frame.accent {
+  border-color: rgba(0, 104, 181, 0.9);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 104, 181, 0.06),
+    rgba(255, 255, 255, 0.01)
+  );
+  box-shadow: 0 8px 22px rgba(0, 104, 181, 0.06);
+}
+
+.flip-front .title-frame:hover,
+.flip-front .title-frame:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(3, 24, 56, 0.08);
+  outline: none;
+}
+
+/* H2 inside title-frame */
+.flip-front h2 {
+  font-size: clamp(2.5rem, 2.4vw, 3rem);
+  font-weight: 700;
+  color: var(--h2-color);
+  margin: 0;
+}
+
+/* H3 below title-frame */
+.flip-front h3 {
+  font-size: clamp(28px, 1.4vw, 28px);
+  font-weight: 600;
+  text-align: center;
+  color: var(--h3-color);
+  margin: 0;
+}
+
+/* IMG inside flip-front */
+.flip-front img {
+  width: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  transition:
+    transform 0.28s cubic-bezier(0.2, 0.9, 0.2, 1),
+    filter 0.28s ease;
+  filter: brightness(0.96) contrast(0.98);
+  transform: translateY(0);
+  border: 4px solid yellowgreen; /* added for contrast and visibility */
+  box-shadow: 0 10px 30px rgba(133, 196, 56, 0.421);
+}
+
+/* Hover effects */
+.cards-section:hover .flip-card {
+  transform: translateY(-10px);
+  transition:
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.36s ease;
+}
+
+.cards-section:hover .flip-front {
+  transform: rotateY(0deg) scale(0.998);
+  transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cards-section:hover .flip-back {
+  transform: rotateY(180deg) scale(0.998);
+  transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cards-section:hover .flip-front img {
+  transform: translateY(18px) scale(1.015);
+}
+
+/* P inside flip-back */
+.flip-back p {
+  font-size: var(--p-size);
+  color: var(--page-text);
+  line-height: var(--p-line-height);
+  padding: 0 0.5rem;
+  max-width: 40ch;
+  margin: 0 auto;
+}

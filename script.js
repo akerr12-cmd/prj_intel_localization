@@ -115,31 +115,7 @@
   });
 })();
 
-// ---------- AUTO-DETECT LANGUAGE + APPLY RTL ----------
-(function () {
-  const rtlLangs = ["ar", "he", "fa", "ur"];
-
-  function applyDirection() {
-    const html = document.documentElement;
-    const lang = html.lang.toLowerCase();
-
-    if (rtlLangs.includes(lang)) {
-      html.setAttribute("dir", "rtl");
-      document.body.classList.add("rtl-active");
-    } else {
-      html.setAttribute("dir", "ltr");
-      document.body.classList.remove("rtl-active");
-    }
-  }
-
-  // Watch for changes to <html lang="">
-  const observer = new MutationObserver(applyDirection);
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
-
-  applyDirection();
-});
-
-
+// ---------- Form submission handlers ----------
   document.querySelector('#contactModal form').addEventListener('submit', function (e) {
     e.preventDefault(); // prevent real submission
 
@@ -218,8 +194,8 @@
   updateActiveIndicator();
 })();
 
-// RT: Auto-detect language and apply RTL if needed
-
+// ---------- AUTO-DETECT LANGUAGE + APPLY RTL ----------
+// Detects RTL languages and watches for changes (including Google Translate)
 (function () {
   // Languages that require RTL layout
   const rtlLangs = ["ar", "he", "fa", "ur"];

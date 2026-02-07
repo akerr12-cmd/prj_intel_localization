@@ -1,0 +1,44 @@
+/* ============================
+   LOCALIZATION SECTION
+   (Three-column layout)
+   ============================ */
+
+/* Force localization section into one row */
+.row.localization {
+  display: flex;
+  flex-wrap: nowrap; /* prevents wrapping */
+  justify-content: center;
+  gap: 2rem; /* replaces g-4 spacing */
+}
+
+/* Custom column sizing (3 columns per row) */
+.col-localization {
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+  padding: 0 1rem;
+}
+
+.localization-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 4px; /* reduced from 16px */
+  margin-right: 24px; /* adds space between header and text */
+}
+
+.localization-header img {
+  width: 90px !important; /* forces a consistent size */
+  height: auto;
+  margin-bottom: 0; /* removes extra vertical push */
+  filter: drop-shadow(0 0 12px rgba(0, 104, 181, 0.35));
+  transition:
+    filter 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* hover lift + stronger glow */
+.localization-header img:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 0 18px rgba(0, 104, 181, 0.55));
+}

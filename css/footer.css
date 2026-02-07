@@ -1,0 +1,9 @@
+/* ============================
+   FOOTER
+   ============================ */
+
+footer a:hover,
+footer a:focus {
+  text-decoration: underline;
+  opacity: 0.85;
+}

@@ -1,0 +1,1216 @@
+@font-face {
+  font-family: "IntelFonts";
+  src:
+    url(fonts/IntelClear-Regular.woff2) format("woff2"),
+    url(fonts/IntelClear-Regular.woff) format("woff");
+}
+
+/* VARIABLES */
+:root {
+  --IntelFonts: "IntelFonts", sans-serif;
+
+  --bg-1: #eef3f9;
+  --bg-2: #e6eef8;
+  --page-text: #0b2a55;
+  --muted-text: #4b6aa6;
+  --accent: #0068b5;
+  --card-bg: #f7fbff;
+  --card-border-color: rgba(11, 42, 86, 0.06);
+  --card-shadow-color: rgba(6, 34, 92, 0.06);
+  --card-back: #eef6ff;
+  --intel-lgtblue: #00c7fd;
+  --intel-drkblue: #0068b5;
+
+  --card-radius: 14px;
+  --card-height: 420px;
+  --card-width: 380px;
+  --gap: 32px;
+  --focus-ring: rgba(0, 102, 255, 0.14);
+  --h2-color: #003a88;
+  --h3-color: var(--muted-text);
+  --p-size: 1.3rem;
+  --p-line-height: 1.7;
+  --p-size-mobile: 1rem; /* mobile fallback */
+}
+
+/* GLOBAL RESET (removes all default browser spacing and makes element sizing predictable so the layout behaves consistently across browsers) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family:
+    "intel-clear",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+  background-color: #deeff3;
+  color: var(--page-text);
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body p {
+  font-size: var(--p-size);
+  line-height: var(--p-line-height);
+  color: var(--page-text);
+}
+
+/* subtle vignette to reduce edge brightness */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.035) 100%
+  );
+  z-index: 9998;
+  mix-blend-mode: multiply;
+}
+
+/* HERO (header) */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 55vh;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  background: linear-gradient(
+    135deg,
+    var(--intel-drkblue) 0%,
+    #0d6fb8 45%,
+    var(--intel-lgtblue) 100%
+  );
+  color: white;
+  overflow: hidden;
+}
+/* places a full overlay gradient on top of the hero background for depth */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 24, 56, 0.12),
+    rgba(3, 24, 56, 0.04)
+  );
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
+.circuit-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+  background-image: url(curved-traces.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  display: inline-block;
+  padding: 0;
+  border-radius: 10px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.hero-logo {
+  width: 600px;
+  margin-bottom: 1rem;
+  filter: brightness(0.96);
+}
+
+.hero-title {
+  font-family: var(--IntelFonts);
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.05;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  max-width: 950px;
+  font-family:
+    "intel-clear",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+}
+
+/* TIMELINE (main) (turns the timeline into a smooth, horizontally scrollable container) */
+.timeline {
+  display: flex;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  width: 100%;
+  scrollbar-width: none;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.timeline::-webkit-scrollbar {
+  height: 10px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background: #b9c7e8;
+  border-radius: 10px;
+}
+
+.timeline::-webkit-scrollbar-track {
+  background: #e9eef8;
+}
+
+/* CARD SECTIONS (each card section is a flex item with fixed width, snap alignment, and initial hidden state for animation) */
+.cards-section {
+  flex: 0 0 var(--card-width);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  position: relative;
+  perspective: 1400px;
+  margin: 0 auto;
+}
+
+.cards-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cards-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 92%;
+  height: 92%;
+  border-radius: 20px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 102, 255, 0.1) 0%,
+    rgba(0, 102, 255, 0) 70%
+  );
+  opacity: 0;
+  transform: scale(0.94);
+  transition:
+    opacity 0.36s ease,
+    transform 0.36s ease;
+  filter: blur(16px);
+  z-index: -1;
+}
+
+.cards-section:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cards-section:hover .flip-card {
+  transform: translateY(-10px);
+  transition:
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.36s ease;
+}
+
+.cards-section:hover .flip-front {
+  transform: rotateY(0deg) scale(0.998);
+  transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cards-section:hover .flip-back {
+  transform: rotateY(180deg) scale(0.998);
+  transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cards-section:hover .flip-front img {
+  transform: translateY(18px) scale(1.015);
+}
+
+.cards-section:focus-within .flip-card,
+.flip-card:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 6px rgba(0, 102, 255, 0.12);
+}
+
+/* FLIP CARD (adjusted height for smaller screens) */
+.flip-card {
+  perspective: 1200px;
+  width: 100%;
+  height: var(--card-height);
+  position: relative;
+  transition:
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.36s ease;
+  will-change: transform, box-shadow;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* Touch support - flip on tap for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .flip-card:active .flip-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+.flip-card:active {
+  transform: translateY(-6px) scale(0.998);
+  transition: transform 0.12s ease;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: var(--card-height);
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* FLIP FRONT & BACK */
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--card-radius);
+  background: var(--intel-lgtblue);
+  border: 1px solid var(--intel-drkblue);
+  box-shadow: 0 8px 20px var(--darkmode-glow);
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transform-origin: center;
+  font-family: var(--IntelFonts);
+}
+
+.flip-front {
+  transform: rotateY(0deg);
+  align-items: center;
+  text-align: center;
+  padding: 1.25rem;
+}
+
+.flip-img-wrap {
+  width: 100%;
+  height: 60%; /* lock the image height */
+  overflow: hidden; /* prevents stretching */
+  flex-shrink: 0; /* prevents collapsing */
+  margin-top: 32px;
+}
+
+.flip-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps image stable */
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  background: var(--card-back);
+  justify-content: center;
+  text-align: center;
+  padding: 1.75rem;
+}
+
+/* TITLE FRAME (inside flip-front) */
+.flip-front .title-frame {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  border: 4px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 6px 18px rgba(3, 24, 56, 0.04);
+  line-height: 1;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  width: 50%;
+  transition:
+    transform 180ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 180ms ease;
+}
+
+.flip-front .title-frame h2,
+.flip-front .title-frame h3 {
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.flip-front .title-frame.accent {
+  border-color: rgba(0, 104, 181, 0.9);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 104, 181, 0.06),
+    rgba(255, 255, 255, 0.01)
+  );
+  box-shadow: 0 8px 22px rgba(0, 104, 181, 0.06);
+}
+
+.flip-front .title-frame:hover,
+.flip-front .title-frame:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(3, 24, 56, 0.08);
+  outline: none;
+}
+
+/* H2 inside title-frame */
+.flip-front h2 {
+  font-size: clamp(2.5rem, 2.4vw, 3rem); /* changed min/max to be readable */
+  font-weight: 700;
+  color: var(--h2-color);
+  margin: 0;
+}
+
+/* H3 below title-frame */
+.flip-front h3 {
+  font-size: clamp(28px, 1.4vw, 28px); /* changed min/max to be readable */
+  font-weight: 600;
+  text-align: center;
+  color: var(--h3-color);
+  margin: 0;
+}
+
+/* IMG inside flip-front */
+.flip-front img {
+  width: auto; /* changed to smaller % to fit smaller screens */
+  border-radius: 10px;
+  object-fit: cover;
+
+  transition:
+    transform 0.28s cubic-bezier(0.2, 0.9, 0.2, 1),
+    filter 0.28s ease;
+  filter: brightness(0.96) contrast(0.98);
+  transform: translateY(0);
+  border: 4px solid yellowgreen; /* added for contrast and visibility */
+  box-shadow: 0 10px 30px rgba(133, 196, 56, 0.421);
+}
+
+/* P inside flip-back */
+.flip-back p {
+  font-size: var(--p-size);
+  color: var(--page-text);
+  line-height: var(--p-line-height);
+  padding: 0 0.5rem;
+  max-width: 40ch;
+  margin: 0 auto;
+}
+
+/* TIMELINE CONTROLS (after main) */
+.timeline-controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.25rem 2rem 2.5rem;
+  box-sizing: border-box;
+  align-items: center;
+  z-index: 5;
+}
+
+.timeline-btn {
+  background: #ffffff;
+  border: 2px solid rgba(0, 104, 181, 0.35); /* Intel blue tint */
+  color: #0068b5;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px; /* matches your cards + modal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0; /* hide text when using SVG */
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 40, 120, 0.12);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.timeline-btn:hover {
+  transform: translateY(-4px);
+  background: #f0f7ff;
+  border-color: rgba(0, 104, 181, 0.55);
+  box-shadow: 0 12px 28px rgba(0, 40, 120, 0.18);
+}
+
+.timeline-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 40, 120, 0.12);
+}
+
+.timeline-btn[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.timeline-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.timeline-container {
+  position: relative; /* needed for indicators */
+  overflow-x: auto;
+  overflow-y: hidden; /* prevents vertical expansion */
+  width: 100%;
+  max-width: 1400px;
+  padding: 10px 20px 55px; /* bottom padding for indicators */
+  border: 2px solid #b9c7e8;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 40, 120, 0.08);
+  scroll-behavior: smooth;
+  background-color: white;
+}
+
+.timeline-indicators {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.timeline-indicators button {
+  width: 28px;
+  height: 10px;
+  padding: 8px; /* Adds invisible touch area */
+  border-radius: 20px;
+  border: none;
+  background-color: #c8d0d8; /* soft Intel gray */
+  background-clip: content-box; /* Keeps visible area small */
+  transition:
+    background-color 0.3s ease,
+    width 0.3s ease;
+  cursor: pointer;
+  min-height: 44px; /* Ensures minimum touch target */
+  min-width: 44px;
+}
+
+.timeline-indicators button.active {
+  background-color: #0068b5; /* Intel blue */
+  width: 38px;
+}
+
+/* Hide WebKit scrollbar */
+.timeline-container::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-wrapper .timeline {
+  display: flex;
+  gap: var(--gap);
+  padding: 2rem 1rem;
+  flex: 1;
+}
+
+.timeline-wrapper .timeline-btn {
+  position: relative;
+  z-index: 10;
+  margin: 0 1rem;
+}
+
+.timeline-wrapper .left-btn {
+  left: 0;
+}
+
+.timeline-wrapper .right-btn {
+  right: 0;
+}
+
+.subscribe-btn {
+  padding: 20px 40px; /* bigger click target + visual weight */
+  font-size: 20px; /* slightly larger text */
+  border-width: 2px; /* makes outline buttons feel more intentional */
+  border-radius: 40px; /* optional: gives a premium pill shape */
+  background-color: var(--intel-drkblue);
+  border-color: var(--intel-drkblue);
+  color: black;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.subscribe-btn:hover {
+  background-color: var(--intel-lgtblue);
+  border-color: var(--intel-lgtblue);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 104, 181, 0.35);
+}
+
+.subscribe-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 104, 181, 0.25);
+}
+
+/* ✨ Force localization section into one row */
+.row.localization {
+  display: flex;
+  flex-wrap: nowrap; /* prevents wrapping */
+  justify-content: center;
+  gap: 2rem; /* replaces g-4 spacing */
+}
+
+/* ✨ Custom column sizing (3 columns per row) */
+.col-localization {
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+  padding: 0 1rem;
+}
+
+/* ✨ Mobile behavior: stack columns only on small screens */
+@media (max-width: 768px) {
+  .row.localization {
+    flex-wrap: wrap; /* allow stacking on mobile */
+  }
+
+  .col-localization {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.localization-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 4px; /* reduced from 16px */
+  margin-right: 24px; /* adds space between header and text */
+}
+
+.localization-header img {
+  width: 90px !important; /* forces a consistent size */
+  height: auto;
+  margin-bottom: 0; /* removes extra vertical push */
+  filter: drop-shadow(0 0 12px rgba(0, 104, 181, 0.35));
+  transition:
+    filter 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Optional: hover lift + stronger glow */
+.localization-header img:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 0 18px rgba(0, 104, 181, 0.55));
+}
+
+/* Optional: even larger on desktop only */
+@media (min-width: 992px) {
+  .localization-header img {
+    width: 110px;
+  }
+}
+
+/* ----------------------------------------------------------
+   ✨ ADDED: Learn More link styling (for 3‑column section)
+   ---------------------------------------------------------- */
+.learn-more-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    text-decoration 0.2s ease,
+    transform 0.2s ease;
+}
+
+.learn-more-link:hover,
+.learn-more-link:focus {
+  text-decoration: underline;
+  color: #004b87; /* slightly darker accent for contrast */
+}
+
+.learn-more-link:active {
+  color: #003566;
+  transform: translateX(2px);
+}
+
+/* ----------------------------------------------------------
+   ✨ ADDED: RTL overrides for custom components
+   These ensure your flip cards + timeline behave correctly
+   when dir="rtl" is applied.
+   ---------------------------------------------------------- */
+body.rtl-active .timeline {
+  direction: rtl;
+}
+
+body.rtl-active .timeline-controls {
+  direction: rtl;
+}
+
+body.rtl-active .timeline-btn.left-btn {
+  transform: scaleX(-1); /* flips arrow direction */
+}
+
+body.rtl-active .timeline-btn.right-btn {
+  transform: scaleX(-1);
+}
+
+/* Flip card RTL adjustments */
+body.rtl-active .flip-front,
+body.rtl-active .flip-back {
+  text-align: right;
+}
+
+body.rtl-active .flip-back p {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* ----------------------------------------------------------
+   ✨ ADDED: Modal refinements for Intel aesthetic
+   ---------------------------------------------------------- */
+.modal-content {
+  border-radius: 14px;
+  border: 1px solid var(--card-border-color);
+  background: var(--card-bg);
+  box-shadow: 0 12px 32px rgba(0, 40, 120, 0.15);
+}
+
+.modal-content h2 {
+  color: var(--h2-color);
+}
+
+.modal-content h3 {
+  color: var(--h2-color);
+}
+
+.modal-content p {
+  color: var(--page-text);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+/* Bootstrap danger red for required fields */
+.form-check-input:invalid {
+  outline: 2px solid #dc3545; /* Bootstrap danger red */
+  outline-offset: 2px;
+}
+
+/* ----------------------------------------------------------
+   ✨ ADDED: Footer link hover improvements
+   ---------------------------------------------------------- */
+footer a:hover,
+footer a:focus {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+/* ----------------------------------------------------------
+   ✨ ADDED: RTL footer alignment
+   ---------------------------------------------------------- */
+body.rtl-active footer .container {
+  direction: rtl;
+}
+
+/* ----------------------------------------------------------
+   ✨ ADDED: RTL-friendly form alignment
+   ---------------------------------------------------------- */
+body.rtl-active form {
+  text-align: right;
+}
+
+body.rtl-active label {
+  float: right;
+}
+
+body.rtl-active input {
+  direction: rtl;
+}
+
+/* ----------------------------------------------------------
+   ✨ ADDED: Optional — RTL adjustments for hero text
+   ---------------------------------------------------------- */
+body.rtl-active .hero-title,
+body.rtl-active .hero-subtitle {
+  text-align: right;
+}
+
+/* RESPONSIVE & ACCESSIBILITY */
+@media (max-width: 768px) {
+  .timeline-controls {
+    display: none;
+  }
+
+  .timeline-wrapper {
+    margin: 1rem 0;
+  }
+
+  .timeline-container {
+    padding: 10px 10px 20px;
+    max-width: 100%;
+  }
+
+  .timeline-indicators {
+    display: none;
+  }
+
+  .timeline-btn {
+    display: none;
+  }
+
+  .timeline {
+    flex-direction: column;
+    overflow-x: visible;
+    padding: 2rem 1.25rem;
+    align-items: center;
+  }
+
+  .cards-section {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 420px;
+    perspective: 1000px;
+  }
+
+  .flip-card {
+    width: 100%;
+    max-width: 100%;
+    height: 420px;
+  }
+
+  .cards-section:hover .flip-card {
+    transform: translateY(-6px);
+  }
+
+  .cards-section:hover .flip-front img {
+    transform: none !important;
+  }
+
+  .cards-section:hover .flip-front h2,
+  .cards-section:hover .flip-front h3 {
+    transform: none !important;
+  }
+
+  .hero-logo {
+    width: 320px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .flip-img-wrap {
+    height: 55%;
+    margin-top: 24px;
+  }
+
+  .subscribe-btn {
+    padding: 16px 32px;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --p-size: var(--p-size-mobile);
+  }
+
+  .cards-section {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .flip-card {
+    height: auto;
+    min-height: 400px;
+  }
+
+  .flip-front {
+    padding: 1rem;
+  }
+
+  .flip-front .title-frame {
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    margin-bottom: 0.45rem;
+    width: 60%;
+  }
+
+  .flip-img-wrap {
+    height: 50%;
+    margin-top: 20px;
+  }
+
+  .flip-back {
+    padding: 1.5rem;
+    border-radius: var(--card-radius);
+  }
+
+  .flip-back p {
+    max-width: 60ch;
+    font-size: 1.1rem;
+  }
+
+  .subscribe-btn {
+    padding: 14px 28px;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+}
+
+/* 320px–360px Ultra‑Small Mobile Enhancements */
+/* targeting devices like Samsung Galaxy Flip, iPhone SE, etc. */
+@media (max-width: 375px) {
+  /* shrinks the global layout spacing and card width */
+  :root {
+    --card-width: 100%;
+    --gap: 16px;
+    --p-size: var(--p-size-mobile);
+  }
+
+  /* Prevents horizontal scrolling */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* HERO (compression so the it doesn't dominate the screen) */
+  .hero {
+    padding: 2rem 1rem;
+    min-height: 48vh;
+  }
+
+  .hero-logo {
+    width: 260px;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    max-width: 90%;
+  }
+
+  /* TIMELINE (less padding, smaller gaps, no horizontal overflow) */
+  .timeline {
+    padding: 1.5rem 0.75rem;
+    gap: 1.5rem;
+    max-width: 100vw;
+  }
+
+  .timeline-wrapper {
+    margin: 0.75rem 0;
+  }
+
+  .timeline-container {
+    padding: 8px 8px 20px;
+  }
+
+  .cards-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  /* FLIP CARD (adjusted height for smaller screens) */
+  .flip-card {
+    height: auto;
+    min-height: 300px;
+    width: 100%;
+  }
+
+  .flip-front,
+  .flip-back {
+    padding: 1rem;
+    border-radius: var(--card-radius);
+  }
+
+  .flip-img-wrap {
+    height: 52%;
+    margin-top: 12px;
+  }
+
+  /* TITLE FRAME (everything shrinks proportionally) */
+  .flip-front .title-frame {
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    width: 70%;
+  }
+
+  .flip-front .title-frame h2 {
+    font-size: 32px;
+  }
+
+  .flip-front .title-frame h3 {
+    font-size: 24px;
+  }
+
+  /* BACK TEXT (adjusted for smaller screens) */
+  .flip-back p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 32ch;
+  }
+
+  /* SUBSCRIBE BUTTON (adjusted for smaller screens) */
+  .subscribe-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+  }
+}
+
+/* ACCESSIBILITY (disables all animations, transitions, and motion effects for users who have enabled "reduce motion" in their device) */
+@media (prefers-reduced-motion: reduce) {
+  .flip-card,
+  .flip-inner,
+  .flip-front img,
+  .flip-front h2,
+  .flip-front h3 {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .flip-front .title-frame {
+    transition: none !important;
+  }
+
+  body p,
+  .flip-back p {
+    transition: none !important;
+  }
+}
+
+/* 320px Ultra-Small Mobile (Galaxy Fold, etc.) */
+@media (max-width: 320px) {
+  .hero-logo {
+    width: 240px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* FLIP CARD - more compact for 320px */
+  .flip-card {
+    min-height: 280px;
+  }
+
+  .flip-front,
+  .flip-back {
+    padding: 0.75rem;
+  }
+
+  .flip-img-wrap {
+    height: 43%;
+    margin-top: 24px;
+  }
+
+  .flip-front .title-frame {
+    padding: 0.3rem 0.45rem;
+    width: 75%;
+    margin-bottom: 0.4rem;
+  }
+
+  .flip-front .title-frame h2 {
+    font-size: 28px;
+  }
+
+  .flip-front .title-frame h3 {
+    font-size: 20px;
+  }
+
+  .flip-back p {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    max-width: 28ch;
+  }
+
+  .subscribe-btn {
+    padding: 12px 24px;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+    min-height: 44px; /* Ensures touch target size */
+  }
+}
+
+/* Dark mode overrides for variables (activated when user prefers dark mode) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-1: #071428;
+    --bg-2: #0b1b2b;
+    --darkmode-glow: rgba(0, 153, 102, 0.473);
+    --darkmode-border: rgb(0, 153, 102);
+    --page-text: #dbe9ff;
+    --muted-text: #9fbfe8;
+    --accent: #4da6ff;
+    --card-darkbg: rgb(17, 54, 129);
+    --card-border-color: rgba(255, 255, 255, 0.06);
+    --card-shadow-color: rgba(0, 0, 0, 0.6);
+    
+    --card-back: #376ca1;
+    --h2-color: #9ec7ff;
+    --h3-color: #9fbfe8;
+  }
+  body {
+    background-color: var(--bg-1);
+  }
+
+  .timeline-container {
+    background-color: var(--bg-2);
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 24px var(--card-shadow-color);
+  }
+
+  .flip-front, .flip-back {
+    background-color: var(--card-darkbg);
+    border: 1px solid var(--card-border-color);
+    box-shadow: 0 0 20px var(--darkmode-glow);
+  }
+
+  /* Dark mode image styles (activated when user prefers dark mode) */
+  .flip-front img {
+    border: 4px solid var(--darkmode-border);
+    box-shadow: 0 10px 30px var(--darkmode-glow);
+  }
+
+  .localization-header img {
+    filter: drop-shadow(0 0px 20px rgba(246, 247, 247, 0.55));
+  }
+
+  .localization-header img:hover {
+    transform: translateY(-4px);
+    filter: drop-shadow(0 0px 20px rgba(246, 247, 247, 0.75));
+  }
+
+  .timeline-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px solid var(--darkmode-border);
+    color: var(--accent); /* your light-blue accent in dark mode */
+    box-shadow: 0 8px 20px var(--darkmode-glow);
+  }
+
+  .timeline-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 153, 102, 0.85); /* stronger green-blue glow */
+    box-shadow: 0 12px 28px var(--darkmode-glow);
+    transform: translateY(-4px);
+  }
+
+  .timeline-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px var(--darkmode-glow);
+  }
+
+  .subscribe-btn {
+    background-color: rgba(0, 153, 102, 0.2);
+    border-color: var(--darkmode-border);
+    color: var(--accent);
+  }
+
+  .subscribe-btn:hover {
+    background-color: rgba(0, 153, 102, 0.35);
+    border-color: rgba(0, 153, 102, 0.85);
+    color: #ffffff;
+    box-shadow: 0 12px 28px var(--darkmode-glow);
+  }
+
+  .timeline-indicators button {
+    background-color: rgba(200, 208, 216, 0.2);
+  }
+
+  .timeline-indicators button.active {
+    background-color: var(--accent);
+  }
+
+  .modal-content {
+    background: var(--card-darkbg);
+    border-color: var(--card-border-color);
+  }
+
+  .modal-content h2 {
+    color: var(--h2-color);
+  }
+
+  .modal-content h3 {
+    color: var(--h3-color);
+  }
+
+  .modal-content p {
+    color: var(--page-text);
+  }
+}

@@ -1,0 +1,111 @@
+/* ============================
+   DARK MODE
+   ============================ */
+
+/* Dark mode overrides for variables (activated when user prefers dark mode) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-1: #071428;
+    --bg-2: #0b1b2b;
+    --darkmode-glow: rgba(0, 153, 102, 0.473);
+    --darkmode-border: rgb(0, 153, 102);
+    --page-text: #dbe9ff;
+    --muted-text: #9fbfe8;
+    --accent: #4da6ff;
+    --card-darkbg: rgb(17, 54, 129);
+    --card-border-color: rgba(255, 255, 255, 0.06);
+    --card-shadow-color: rgba(0, 0, 0, 0.6);
+
+    --card-back: #376ca1;
+    --h2-color: #9ec7ff;
+    --h3-color: #9fbfe8;
+  }
+
+  body {
+    background-color: var(--bg-1);
+  }
+
+  .timeline-container {
+    background-color: var(--bg-2);
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 24px var(--card-shadow-color);
+  }
+
+  .flip-front, .flip-back {
+    background-color: var(--card-darkbg);
+    border: 1px solid var(--card-border-color);
+    box-shadow: 0 0 20px var(--darkmode-glow);
+  }
+
+  /* Dark mode image styles (activated when user prefers dark mode) */
+  .flip-front img {
+    border: 4px solid var(--darkmode-border);
+    box-shadow: 0 10px 30px var(--darkmode-glow);
+  }
+
+  .localization-header img {
+    filter: drop-shadow(0 0px 20px rgba(246, 247, 247, 0.55));
+  }
+
+  .localization-header img:hover {
+    transform: translateY(-4px);
+    filter: drop-shadow(0 0px 20px rgba(246, 247, 247, 0.75));
+  }
+
+  .timeline-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px solid var(--darkmode-border);
+    color: var(--accent); /* your light-blue accent in dark mode */
+    box-shadow: 0 8px 20px var(--darkmode-glow);
+  }
+
+  .timeline-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 153, 102, 0.85); /* stronger green-blue glow */
+    box-shadow: 0 12px 28px var(--darkmode-glow);
+    transform: translateY(-4px);
+  }
+
+  .timeline-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px var(--darkmode-glow);
+  }
+
+  .subscribe-btn {
+    background-color: rgba(0, 153, 102, 0.2);
+    border-color: var(--darkmode-border);
+    color: var(--accent);
+  }
+
+  .subscribe-btn:hover {
+    background-color: rgba(0, 153, 102, 0.35);
+    border-color: rgba(0, 153, 102, 0.85);
+    color: #ffffff;
+    box-shadow: 0 12px 28px var(--darkmode-glow);
+  }
+
+  .timeline-indicators button {
+    background-color: rgba(200, 208, 216, 0.2);
+  }
+
+  .timeline-indicators button.active {
+    background-color: var(--accent);
+  }
+
+  .modal-content {
+    background: var(--card-darkbg);
+    border-color: var(--card-border-color);
+  }
+
+  .modal-content h2 {
+    color: var(--h2-color);
+  }
+
+  .modal-content h3 {
+    color: var(--h3-color);
+  }
+
+  .modal-content p {
+    color: var(--page-text);
+  }
+}

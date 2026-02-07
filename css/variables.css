@@ -1,0 +1,37 @@
+/* ============================
+   CSS CUSTOM PROPERTIES
+   ============================ */
+
+@font-face {
+  font-family: "IntelFonts";
+  src:
+    url(../fonts/IntelClear-Regular.woff2) format("woff2"),
+    url(../fonts/IntelClear-Regular.woff) format("woff");
+}
+
+:root {
+  --IntelFonts: "IntelFonts", sans-serif;
+
+  --bg-1: #eef3f9;
+  --bg-2: #e6eef8;
+  --page-text: #0b2a55;
+  --muted-text: #4b6aa6;
+  --accent: #0068b5;
+  --card-bg: #f7fbff;
+  --card-border-color: rgba(11, 42, 86, 0.06);
+  --card-shadow-color: rgba(6, 34, 92, 0.06);
+  --card-back: #eef6ff;
+  --intel-lgtblue: #00c7fd;
+  --intel-drkblue: #0068b5;
+
+  --card-radius: 14px;
+  --card-height: 420px;
+  --card-width: 380px;
+  --gap: 32px;
+  --focus-ring: rgba(0, 102, 255, 0.14);
+  --h2-color: #003a88;
+  --h3-color: var(--muted-text);
+  --p-size: 1.3rem;
+  --p-line-height: 1.7;
+  --p-size-mobile: 1rem; /* mobile fallback */
+}

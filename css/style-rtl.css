@@ -33,16 +33,7 @@ body.rtl-active .timeline .cards-section {
   padding-left: 16px; /* less space on the left */
 }
 
-/* Flip arrow buttons */
-body.rtl-active .left-btn {
-  right: 14px;
-  left: auto;
-}
-
-body.rtl-active .right-btn {
-  left: 14px;
-  right: auto;
-}
+/* Note: Timeline navigation buttons (.left-btn, .right-btn) remain unchanged in RTL mode */
 
 /* Indicator pills reverse direction */
 body.rtl-active .timeline-indicators {

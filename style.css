@@ -141,6 +141,7 @@ body::after {
   -webkit-overflow-scrolling: touch;
   position: relative;
   width: 100%;
+  scrollbar-width: none;
 }
 
 .timeline::before {
@@ -440,20 +441,52 @@ body::after {
 }
 
 .timeline-container {
+  position: relative;              /* needed for indicators */
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: hidden;              /* prevents vertical expansion */
   width: 100%;
-  max-width: 1400px;      /* increased from 1200px */
-  padding: 0 20px;        /* optional: adds breathing room */
-  border: 2px solid #b9c7e8;  /* Intel-friendly soft blue border */
-  border-radius: 14px;    /* matches your modal + card radius */
+  max-width: 1400px;
+  padding: 10px 20px 55px;            /* bottom padding for indicators */
+  border: 2px solid #b9c7e8;
+  border-radius: 14px;
   box-shadow: 0 8px 20px rgba(0, 40, 120, 0.08);
   scroll-behavior: smooth;
 }
 
-.timeline-container::-webkit-scrollbar {
-  height: 10px;
+
+
+.timeline-indicators {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+  pointer-events: auto;
 }
+
+.timeline-indicators button {
+  width: 28px;
+  height: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #c8d0d8; /* soft Intel gray */
+  transition: background-color 0.3s ease, width 0.3s ease;
+  cursor: pointer;
+}
+
+.timeline-indicators button.active {
+  background-color: #0068b5; /* Intel blue */
+  width: 38px;
+}
+
+
+/* Hide WebKit scrollbar */
+.timeline-container::-webkit-scrollbar {
+  display: none;
+}
+
 
 .timeline-container::-webkit-scrollbar-thumb {
   background: #b9c7e8;

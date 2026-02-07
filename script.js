@@ -155,3 +155,50 @@
     this.reset();
   });
 
+  (function () {
+  const timeline = document.querySelector('.timeline');
+  const cards = document.querySelectorAll('.cards-section');
+  const indicatorContainer = document.querySelector('.timeline-indicators');
+
+  if (!timeline || cards.length === 0 || !indicatorContainer) return;
+
+  // Create indicator buttons
+  cards.forEach((card, index) => {
+    const btn = document.createElement('button');
+    btn.setAttribute('aria-label', `Go to card ${index + 1}`);
+
+    btn.addEventListener('click', () => {
+      const left = card.offsetLeft;
+      timeline.scrollTo({ left, behavior: 'smooth' });
+    });
+
+    indicatorContainer.appendChild(btn);
+  });
+
+  const indicatorButtons = indicatorContainer.querySelectorAll('button');
+
+  // Highlight active indicator
+  function updateActiveIndicator() {
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    cards.forEach((card, index) => {
+      const distance = Math.abs(card.offsetLeft - timeline.scrollLeft);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    indicatorButtons.forEach((btn, i) => {
+      btn.classList.toggle('active', i === closestIndex);
+    });
+  }
+
+  timeline.addEventListener('scroll', () => {
+    requestAnimationFrame(updateActiveIndicator);
+  });
+
+  updateActiveIndicator();
+})();
+

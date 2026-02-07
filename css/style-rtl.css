@@ -18,9 +18,9 @@ body.rtl-active .modal-content {
 /* ============================
    TIMELINE
    ============================ */
-   body.rtl-active .timeline-container {
-  padding-right: 30px;   /* more space on the right */
-  padding-left: 20px;    /* slightly less on the left */
+body.rtl-active .timeline-container {
+  padding-right: 30px; /* more space on the right */
+  padding-left: 20px; /* slightly less on the left */
 }
 
 body.rtl-active .timeline {
@@ -51,7 +51,6 @@ body.rtl-active h2,
 body.rtl-active h3 {
   padding-right: 8px;
 }
-
 
 /* ============================
    MODALS

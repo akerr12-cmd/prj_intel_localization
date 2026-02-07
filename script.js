@@ -101,7 +101,7 @@
 
   // Keyboard navigation (left/right)
   window.addEventListener('keydown', (e) => {
-    // Ignore if focus is in an input/textarea or contenteditable
+    // Ignore if focus is in an input/textarea or content editable
     const active = document.activeElement;
     if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable)) return;
 

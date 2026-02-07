@@ -212,7 +212,11 @@
 
     // Add/remove your custom RTL class for styling
     document.body.classList.toggle("rtl-active", isRTL);
+
+    // write to console log for debugging
+    console.log(`Language set to: ${lang}, direction: ${isRTL ? "RTL" : "LTR"}`);
   }
+
 
   // Run once on load
   applyDirection();

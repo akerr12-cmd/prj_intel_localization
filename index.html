@@ -342,50 +342,7 @@
       </div>
     </section>
 
-    <div class="modal fade" id="intelModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content p-4">
 
-          <h2 class="text-center mb-3 fw-bold">Subscribe to Intel Sustainability Updates</h2>
-
-          <form aria-label="Subscription form">
-
-            <!-- First + Last Name -->
-            <div class="row mb-3">
-              <div class="col">
-                <label for="firstName" class="form-label">First Name</label>
-                <input type="text" id="firstName" class="form-control" placeholder="First name" required>
-              </div>
-
-              <div class="col">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input type="text" id="lastName" class="form-control" placeholder="Last name" required>
-              </div>
-            </div>
-
-            <!-- Email -->
-            <div class="mb-3">
-              <label for="email" class="form-label">Email address</label>
-              <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
-            </div>
-
-            <!-- Consent Checkbox -->
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="subscriptionConsent" required>
-              <label class="form-check-label" for="subscriptionConsent">
-                I understand this is a demonstration site and no real subscriptions are processed.
-              </label>
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100">
-              Subscribe
-            </button>
-
-          </form>
-
-        </div>
-      </div>
-    </div>
   </main>
 
   <footer class="bg-dark text-light py-4 mt-5">
@@ -614,6 +571,52 @@
     </div>
   </div>
 
+  <!-- SUBSCRIPTION MODAL -->
+  <div class="modal fade" id="intelModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+
+        <h2 class="text-center mb-3 fw-bold">Subscribe to Intel Sustainability Updates</h2>
+
+        <form aria-label="Subscription form">
+
+          <!-- First + Last Name -->
+          <div class="row mb-3">
+            <div class="col">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" id="firstName" class="form-control" placeholder="First name" required>
+            </div>
+
+            <div class="col">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" id="lastName" class="form-control" placeholder="Last name" required>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+          </div>
+
+          <!-- Consent Checkbox -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="subscriptionConsent" required>
+            <label class="form-check-label" for="subscriptionConsent">
+              I understand this is a demonstration site and no real subscriptions are processed.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">
+            Subscribe
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
   <!-- SUBSCRIPTION SUCCESS MODAL -->
   <div class="modal fade" id="subscriptionSuccessModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -622,7 +625,8 @@
         <h2 class="fw-bold mb-3">Thank You for Subscribing!</h2>
 
         <p class="mb-3">
-          You've successfully subscribed to Intel Sustainability Updates. We'll keep you informed about our latest sustainability initiatives and achievements.
+          You've successfully subscribed to Intel Sustainability Updates. We'll keep you informed about our latest
+          sustainability initiatives and achievements.
         </p>
 
         <button class="btn btn-primary w-100 mt-2" data-bs-dismiss="modal" aria-label="Close">

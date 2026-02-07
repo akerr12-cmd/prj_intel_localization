@@ -242,4 +242,140 @@
   .subscription-content .subscribe-btn:hover {
     box-shadow: 0 12px 32px rgba(0, 199, 253, 0.3);
   }
+
+  /* ============================
+     FORMS DARK MODE
+     ============================ */
+
+  /* Form labels */
+  .form-label {
+    color: var(--intel-lgtblue);
+  }
+
+  /* Text inputs & select */
+  .form-control,
+  .form-select {
+    background: rgba(20, 30, 50, 0.7);
+    border-color: rgba(77, 166, 255, 0.25);
+    color: var(--page-text);
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.3),
+      0 0 0 0 rgba(77, 166, 255, 0);
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    background: rgba(20, 30, 50, 0.85);
+    border-color: rgba(77, 166, 255, 0.6);
+    color: var(--page-text);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.4),
+      0 0 0 3px rgba(77, 166, 255, 0.15),
+      0 0 20px rgba(77, 166, 255, 0.2);
+  }
+
+  /* Validation states dark mode */
+  .form-control:valid:not(:placeholder-shown),
+  .form-select:valid {
+    border-color: rgba(0, 153, 102, 0.5);
+    box-shadow:
+      0 2px 6px rgba(0, 153, 102, 0.15),
+      0 0 12px var(--darkmode-glow);
+  }
+
+  .form-control:invalid:not(:placeholder-shown) {
+    border-color: rgba(220, 53, 69, 0.6);
+    box-shadow:
+      0 2px 6px rgba(220, 53, 69, 0.15),
+      0 0 12px rgba(220, 53, 69, 0.15);
+  }
+
+  /* Hover states */
+  .form-control:hover:not(:focus),
+  .form-select:hover:not(:focus) {
+    border-color: rgba(77, 166, 255, 0.4);
+    box-shadow:
+      0 3px 8px rgba(0, 0, 0, 0.35),
+      0 0 12px rgba(77, 166, 255, 0.1);
+  }
+
+  /* Select arrow - dark mode */
+  .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%234da6ff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  }
+
+  /* Checkbox dark mode */
+  .form-check-input {
+    background: rgba(20, 30, 50, 0.7);
+    border-color: rgba(220, 53, 69, 0.7);
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+  }
+
+  .form-check-input:hover {
+    border-color: rgba(77, 166, 255, 0.5);
+    box-shadow: 0 2px 8px rgba(77, 166, 255, 0.2);
+  }
+
+  .form-check-input:checked {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    box-shadow:
+      0 2px 6px rgba(77, 166, 255, 0.4),
+      0 0 12px rgba(77, 166, 255, 0.25);
+  }
+
+  .form-check-input:focus {
+    border-color: rgba(77, 166, 255, 0.6);
+    box-shadow:
+      0 0 0 3px rgba(77, 166, 255, 0.2),
+      0 2px 8px rgba(77, 166, 255, 0.2);
+  }
+
+  .form-check-label {
+    color: var(--page-text);
+  }
+
+  /* Placeholder dark mode */
+  .form-control::placeholder,
+  .form-select::placeholder {
+    color: rgba(159, 191, 232, 0.4);
+  }
+
+  /* Disabled state dark mode */
+  .form-control:disabled,
+  .form-select:disabled {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(219, 233, 255, 0.5);
+  }
+
+  /* Success modals dark mode */
+  #subscriptionSuccessModal .modal-content,
+  #messageSentModal .modal-content {
+    border-color: rgba(0, 153, 102, 0.5);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.6),
+      0 0 60px var(--darkmode-glow),
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  }
+
+  /* Success modal pattern - dark mode */
+  #subscriptionSuccessModal .modal-content::before,
+  #messageSentModal .modal-content::before {
+    background-image:
+      linear-gradient(135deg, rgba(0, 153, 102, 0.05) 1px, transparent 1px),
+      linear-gradient(225deg, rgba(0, 153, 102, 0.05) 1px, transparent 1px);
+  }
+
+  /* Success modal headings */
+  #subscriptionSuccessModal h2,
+  #messageSentModal h2 {
+    color: var(--intel-lgtblue);
+  }
+
+  /* Success modal text */
+  #subscriptionSuccessModal p,
+  #messageSentModal p {
+    color: var(--page-text);
+  }
 }

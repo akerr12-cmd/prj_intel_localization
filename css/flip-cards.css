@@ -18,6 +18,22 @@
   transform: rotateY(180deg);
 }
 
+/* Keyboard-triggered flip (persistent toggle) */
+.flip-card .flip-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Keyboard focus indicator for flip cards */
+.flip-card:focus-visible {
+  outline: 3px solid #0068b5;
+  outline-offset: 6px;
+  border-radius: var(--card-radius);
+}
+
+.flip-card:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* Touch support - flip on tap for touch devices */
 @media (hover: none) and (pointer: coarse) {
   .flip-card:active .flip-inner {

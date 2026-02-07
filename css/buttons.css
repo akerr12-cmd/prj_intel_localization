@@ -35,6 +35,16 @@
   box-shadow: 0 6px 16px rgba(0, 40, 120, 0.12);
 }
 
+/* Keyboard focus indicator */
+.timeline-btn:focus-visible {
+  outline: 3px solid #0068b5;
+  outline-offset: 4px;
+}
+
+.timeline-btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .timeline-btn[disabled] {
   opacity: 0.4;
   cursor: not-allowed;

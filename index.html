@@ -5,7 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Intel: Sustainability Through the Ages</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore Intel's 56-year sustainability journey from founding in 1968 to achieving 99% renewable energy in 2024. Interactive timeline showcasing milestones in technology innovation and environmental commitment.">
+  <meta name="keywords" content="Intel, sustainability, timeline, environmental technology, renewable energy, net-zero emissions, tech innovation, corporate responsibility">
+  <meta name="author" content="Intel Corporation">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Intel: Sustainability Through the Ages">
+  <meta property="og:description" content="Interactive timeline exploring Intel's environmental journey from 1968 to 2024. Discover how Intel achieved 99% renewable energy, conserved billions of gallons of water, and led sustainable innovation.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ar_SA">
+  <meta property="og:locale:alternate" content="he_IL">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Intel: Sustainability Through the Ages">
+  <meta name="twitter:description" content="Interactive timeline exploring Intel's environmental journey from 1968 to 2024">
+
+  <title>Intel Sustainability Timeline (1968-2024) | Environmental Milestones & Net-Zero Journey</title>
 
   <!-- Favicon -->
   <link rel="icon" href="img/favicon_intel.svg" type="image/svg+xml">
@@ -20,6 +39,36 @@
   <!-- Existing Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css/style-rtl.css">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Intel Sustainability Timeline",
+    "description": "Interactive timeline of Intel's sustainability milestones from 1968 to 2024",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "datePublished": "2026-02-07",
+    "inLanguage": ["en", "ar", "he", "fa", "ur"],
+    "about": {
+      "@type": "Organization",
+      "name": "Intel Corporation",
+      "url": "https://www.intel.com",
+      "sameAs": [
+        "https://twitter.com/intel",
+        "https://www.linkedin.com/company/intel-corporation"
+      ]
+    },
+    "keywords": "Intel, sustainability, renewable energy, environmental technology, corporate responsibility"
+  }
+  </script>
 </head>
 
 <body>
@@ -51,16 +100,19 @@
       <div class="timeline-container">
         <div class="timeline">
           <!-- Card 0 -->
-          <section class="cards-section">
-            <div class="flip-card">
+          <section class="cards-section" role="article" aria-labelledby="card-1968">
+            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel founding in 1968">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
-                    <h2>1968</h2>
+                    <h2 id="card-1968">1968</h2>
                   </div>
                   <h3>Intel Founded</h3>
                   <div class="flip-img-wrap">
-                    <img src="img/1968_iconography.png" alt="Intel founding in 1968">
+                    <picture>
+                      <source type="image/webp" srcset="img/1968_iconography.webp">
+                      <img src="img/1968_iconography.png" alt="Intel founding in 1968">
+                    </picture>
                   </div>
                 </div>
                 <div class="flip-back">
@@ -73,17 +125,20 @@
           </section>
 
           <!-- Card 1 -->
-          <section class="cards-section">
-            <div class="flip-card">
+          <section class="cards-section" role="article" aria-labelledby="card-1971">
+            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel 4004 microprocessor from 1971">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
-                    <h2>1971</h2>
+                    <h2 id="card-1971">1971</h2>
                   </div>
                   <h3>First Microprocessor</h3>
 
                   <div class="flip-img-wrap">
-                    <img src="img/1971_iconography.png" alt="Intel 4004 microprocessor from 1971">
+                    <picture>
+                      <source type="image/webp" srcset="img/1971_iconography.webp">
+                      <img src="img/1971_iconography.png" alt="Intel 4004 microprocessor from 1971">
+                    </picture>
                   </div>
 
                 </div>
@@ -96,16 +151,19 @@
           </section>
 
           <!-- Card 2 -->
-          <section class="cards-section">
-            <div class="flip-card">
+          <section class="cards-section" role="article" aria-labelledby="card-1978">
+            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel 8086 processor from 1978">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
-                    <h2>1978</h2>
+                    <h2 id="card-1978">1978</h2>
                   </div>
                   <h3>8086 Processor</h3>
                   <div class="flip-img-wrap">
-                    <img src="img/1978_iconography.png" alt="Intel 8086 processor from 1978">
+                    <picture>
+                      <source type="image/webp" srcset="img/1978_iconography.webp">
+                      <img src="img/1978_iconography.png" alt="Intel 8086 processor from 1978" loading="lazy">
+                    </picture>
                   </div>
 
                 </div>
@@ -121,16 +179,19 @@
           </section>
 
           <!-- Card 3 -->
-          <section class="cards-section">
-            <div class="flip-card">
+          <section class="cards-section" role="article" aria-labelledby="card-1985">
+            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel 386 processor from 1985">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
-                    <h2>1985</h2>
+                    <h2 id="card-1985">1985</h2>
                   </div>
                   <h3>386 Processor</h3>
                   <div class="flip-img-wrap">
-                    <img src="img/1985_iconography.png" alt="Intel 386 processor from 1985">
+                    <picture>
+                      <source type="image/webp" srcset="img/1985_iconography.webp">
+                      <img src="img/1985_iconography.png" alt="Intel 386 processor from 1985" loading="lazy">
+                    </picture>
                   </div>
                 </div>
                 <div class="flip-back">
@@ -143,16 +204,19 @@
           </section>
 
           <!-- Card 4 -->
-          <section class="cards-section">
-            <div class="flip-card">
+          <section class="cards-section" role="article" aria-labelledby="card-2006">
+            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel greenhouse gas emissions peak in 2006">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
-                    <h2>2006</h2>
+                    <h2 id="card-2006">2006</h2>
                   </div>
                   <h3>Peak GHG Emissions</h3>
                   <div class="flip-img-wrap">
-                    <img src="img/2006_iconography.png" alt="Intel greenhouse gas emissions peak in 2006">
+                    <picture>
+                      <source type="image/webp" srcset="img/2006_iconography.webp">
+                      <img src="img/2006_iconography.png" alt="Intel greenhouse gas emissions peak in 2006" loading="lazy">
+                    </picture>
                   </div>
                 </div>
                 <div class="flip-back">
@@ -167,16 +231,19 @@
           </section>
 
           <!-- Card 5 -->
-          <section class="cards-section">
-            <div class="flip-card">
+          <section class="cards-section" role="article" aria-labelledby="card-2020">
+            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel RISE strategy launched in 2020">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
-                    <h2>2020</h2>
+                    <h2 id="card-2020">2020</h2>
                   </div>
                   <h3>RISE Strategy</h3>
                   <div class="flip-img-wrap">
-                    <img src="img/2020_iconography.png" alt="Intel RISE strategy launched in 2020">
+                    <picture>
+                      <source type="image/webp" srcset="img/2020_iconography.webp">
+                      <img src="img/2020_iconography.png" alt="Intel RISE strategy launched in 2020" loading="lazy">
+                    </picture>
                   </div>
                 </div>
                 <div class="flip-back">
@@ -189,16 +256,19 @@
           </section>
 
           <!-- Card 6 -->
-          <section class="cards-section">
-            <div class="flip-card">
+          <section class="cards-section" role="article" aria-labelledby="card-2022">
+            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel net-zero commitment announced in 2022">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
-                    <h2>2022</h2>
+                    <h2 id="card-2022">2022</h2>
                   </div>
                   <h3>Net-Zero by 2040</h3>
                   <div class="flip-img-wrap">
-                    <img src="img/2022_iconography.png" alt="Intel net-zero commitment announced in 2022">
+                    <picture>
+                      <source type="image/webp" srcset="img/2022_iconography.webp">
+                      <img src="img/2022_iconography.png" alt="Intel net-zero commitment announced in 2022" loading="lazy">
+                    </picture>
                   </div>
                 </div>
                 <div class="flip-back">
@@ -212,16 +282,19 @@
           </section>
 
           <!-- Card 7 -->
-          <section class="cards-section">
-            <div class="flip-card">
+          <section class="cards-section" role="article" aria-labelledby="card-2023">
+            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel renewable electricity achievement in 2023">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
-                    <h2>2023</h2>
+                    <h2 id="card-2023">2023</h2>
                   </div>
                   <h3>Renewable Electricity</h3>
                   <div class="flip-img-wrap">
-                    <img src="img/2023_iconography.png" alt="Intel renewable electricity achievement in 2023">
+                    <picture>
+                      <source type="image/webp" srcset="img/2023_iconography.webp">
+                      <img src="img/2023_iconography.png" alt="Intel renewable electricity achievement in 2023" loading="lazy">
+                    </picture>
                   </div>
                 </div>
                 <div class="flip-back">
@@ -233,16 +306,19 @@
           </section>
 
           <!-- Card 8 -->
-          <section class="cards-section">
-            <div class="flip-card">
+          <section class="cards-section" role="article" aria-labelledby="card-2024">
+            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel Sustainability Summit in 2024">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
-                    <h2>2024</h2>
+                    <h2 id="card-2024">2024</h2>
                   </div>
                   <h3>Sustainability Summit</h3>
                   <div class="flip-img-wrap">
-                    <img src="img/2024_iconography.png" alt="Intel Sustainability Summit in 2024">
+                    <picture>
+                      <source type="image/webp" srcset="img/2024_iconography.webp">
+                      <img src="img/2024_iconography.png" alt="Intel Sustainability Summit in 2024" loading="lazy">
+                    </picture>
                   </div>
                 </div>
                 <div class="flip-back">

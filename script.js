@@ -115,6 +115,17 @@
   });
 })();
 
+// ---------- Flip card keyboard navigation ----------
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const flipInner = card.querySelector('.flip-inner');
+      flipInner.classList.toggle('flipped');
+    }
+  });
+});
+
 // ---------- Form submission handlers ----------
   document.querySelector('#contactModal form').addEventListener('submit', function (e) {
     e.preventDefault(); // prevent real submission

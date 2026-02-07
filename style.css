@@ -23,7 +23,7 @@
 
   --card-radius: 14px;
   --card-height: 420px;
-  --card-width: 320px;
+  --card-width: 380px;
   --gap: 32px;
   --focus-ring: rgba(0, 102, 255, 0.14);
   --h2-color: #003a88;
@@ -221,6 +221,7 @@ body::after {
     transform 0.6s ease;
   position: relative;
   perspective: 1400px;
+  margin: 0 auto;
 }
 
 .cards-section.visible {
@@ -336,9 +337,23 @@ body::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   padding: 1.25rem;
+}
+
+.flip-img-wrap {
+  width: 100%;
+  height: 60%; /* lock the image height */
+  overflow: hidden; /* prevents stretching */
+  flex-shrink: 0; /* prevents collapsing */
+  margin-top: 32px;
+}
+
+.flip-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps image stable */
 }
 
 .flip-back {
@@ -418,9 +433,8 @@ body::after {
 .flip-front img {
   width: auto; /* changed to smaller % to fit smaller screens */
   border-radius: 10px;
-  margin-top: 40px;
   object-fit: cover;
-  height: 55%;
+
   transition:
     transform 0.28s cubic-bezier(0.2, 0.9, 0.2, 1),
     filter 0.28s ease;
@@ -630,21 +644,17 @@ body::after {
 .localization-header {
   display: flex;
   align-items: center;
-  gap: 8px; /* space between image and text */
-  justify-content: center; /* keeps it centered in the column */
-  margin-bottom: 16px; /* space below the header */
+  gap: 8px;
+  justify-content: flex-start;
+  margin-bottom: 4px; /* reduced from 16px */
 }
-/* ✨ Larger images in localization section */
+
 .localization-header img {
-  width: 90px; /* increase from 64px */
+  width: 90px !important; /* forces a consistent size */
   height: auto;
-  margin-bottom: 1rem;
-  filter: drop-shadow(
-    0 0 12px rgba(0, 104, 181, 0.35)
-  ); /* subtle Intel Blue glow */
-  transition:
-    filter 0.25s ease,
-    transform 0.25s ease;
+  margin-bottom: 0; /* removes extra vertical push */
+  filter: drop-shadow(0 0 12px rgba(0, 104, 181, 0.35));
+  transition: filter 0.25s ease, transform 0.25s ease;
 }
 
 /* Optional: hover lift + stronger glow */
@@ -984,7 +994,21 @@ body.rtl-active .hero-subtitle {
     --h2-color: #9ec7ff;
     --h3-color: #9fbfe8;
   }
+body {
+   background-color: var(--bg-1);
+}
 
+.timeline-container {
+    background-color: var(--bg-2);
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 24px var(--card-shadow-color);
+  }
+
+.flip-front {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border-color);
+    box-shadow: 0 0 20px var(--darkmode-glow);
+  }
   /* Dark mode image styles (activated when user prefers dark mode) */
   .flip-front img {
     border: 4px solid var(--darkmode-border);

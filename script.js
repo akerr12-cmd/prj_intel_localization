@@ -202,3 +202,48 @@
   updateActiveIndicator();
 })();
 
+// RT: Auto-detect language and apply RTL if needed
+
+(function () {
+  // Languages that require RTL layout
+  const rtlLangs = ["ar", "he", "fa", "ur"];
+
+  function applyDirection() {
+    const html = document.documentElement;
+    const lang = (html.lang || "").toLowerCase().trim();
+
+    // Determine direction
+    const isRTL = rtlLangs.includes(lang);
+
+    // Apply direction to <html>
+    html.setAttribute("dir", isRTL ? "rtl" : "ltr");
+
+    // Add/remove your custom RTL class for styling
+    document.body.classList.toggle("rtl-active", isRTL);
+  }
+
+  // Run once on load
+  applyDirection();
+
+  // Watch for <html lang=""> changes (Google Translate modifies this)
+  const langObserver = new MutationObserver(applyDirection);
+
+  langObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["lang"]
+  });
+
+  // Google Translate sometimes rewrites the DOM without updating <html lang="">
+  // This catches those cases by polling for direction drift.
+  let lastLang = document.documentElement.lang;
+
+  setInterval(() => {
+    const currentLang = document.documentElement.lang;
+    if (currentLang !== lastLang) {
+      lastLang = currentLang;
+      applyDirection();
+    }
+  }, 800);
+})();
+
+

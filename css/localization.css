@@ -1,20 +1,20 @@
 /* ============================
    LOCALIZATION SECTION
-   (Three-column layout)
+   (Vertical stacked layout)
    ============================ */
 
-/* Force localization section into one row */
+/* Localization section stacked vertically on all screen sizes */
 .row.localization {
   display: flex;
-  flex-wrap: nowrap; /* prevents wrapping */
+  flex-wrap: wrap; /* allows stacking */
   justify-content: center;
-  gap: 2rem; /* replaces g-4 spacing */
+  gap: 2rem; /* spacing between stacked items */
 }
 
-/* Custom column sizing (3 columns per row) */
+/* Full width columns for vertical stacking */
 .col-localization {
-  flex: 0 0 33.333%;
-  max-width: 33.333%;
+  flex: 0 0 100%;
+  max-width: 100%;
   padding: 0 1rem;
 }
 

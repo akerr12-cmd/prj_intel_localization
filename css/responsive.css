@@ -234,16 +234,6 @@
     font-size: 14px;
     letter-spacing: 0.8px;
   }
-
-  /* Mobile behavior: stack columns only on small screens */
-  .row.localization {
-    flex-wrap: wrap; /* allow stacking on mobile */
-  }
-
-  .col-localization {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
 }
 
 /* 320px Ultra-Small Mobile (Galaxy Fold, etc.) */

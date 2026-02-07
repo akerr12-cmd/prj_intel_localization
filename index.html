@@ -19,6 +19,7 @@
 
   <!-- Existing Styles -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-rtl.css">
 </head>
 
 <body>
@@ -239,6 +240,7 @@
               </div>
             </div>
           </section>
+          
         </div>
         <!-- Indicators inside the timeline container for better alignment -->
           <div class="timeline-indicators"></div>
@@ -302,11 +304,13 @@
 
 
     <!-- Subscription Button with Modal popup -->
-    <div class="text-center my-4">
-      <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#intelModal">
-        Subscribe to Intel Sustainability Updates
-      </button>
-    </div>
+   <div class="text-center my-4">
+  <button class="btn btn-outline-primary subscribe-btn"
+          data-bs-toggle="modal"
+          data-bs-target="#intelModal">
+    Subscribe to Intel Sustainability Updates
+  </button>
+</div>
 
     <div class="modal fade" id="intelModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">

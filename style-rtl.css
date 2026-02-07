@@ -1,0 +1,102 @@
+/* ============================
+   GLOBAL RTL MODE
+   ============================ */
+body.rtl-active {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ============================
+   LAYOUT + CONTAINERS
+   ============================ */
+body.rtl-active .container,
+body.rtl-active .timeline-container,
+body.rtl-active .modal-content {
+  text-align: right;
+}
+
+/* ============================
+   TIMELINE
+   ============================ */
+   body.rtl-active .timeline-container {
+  padding-right: 30px;   /* more space on the right */
+  padding-left: 20px;    /* slightly less on the left */
+}
+
+body.rtl-active .timeline {
+  direction: rtl;
+}
+
+body.rtl-active .timeline .cards-section {
+  direction: rtl;
+  padding-right: 24px; /* more space on the right */
+  padding-left: 16px; /* less space on the left */
+}
+
+/* Flip arrow buttons */
+body.rtl-active .left-btn {
+  right: 14px;
+  left: auto;
+}
+
+body.rtl-active .right-btn {
+  left: 14px;
+  right: auto;
+}
+
+/* Indicator pills reverse direction */
+body.rtl-active .timeline-indicators {
+  flex-direction: row-reverse;
+  bottom: 18px; /* adjust if needed for better alignment */
+  gap: 14px; /* space between indicators */
+}
+
+body.rtl-active .timeline-indicators button.active {
+  transform-origin: right center;
+}
+
+body.rtl-active h1,
+body.rtl-active h2,
+body.rtl-active h3 {
+  padding-right: 8px;
+}
+
+
+/* ============================
+   MODALS
+   ============================ */
+body.rtl-active .modal-content {
+  text-align: right;
+}
+
+body.rtl-active .modal .btn-close {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* ============================
+   FORMS
+   ============================ */
+body.rtl-active label {
+  text-align: right;
+  display: block;
+}
+
+body.rtl-active input,
+body.rtl-active textarea,
+body.rtl-active select {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+body.rtl-active footer .container {
+  text-align: right;
+}
+
+body.rtl-active footer a {
+  margin-left: 18px;
+  margin-right: 0;
+}

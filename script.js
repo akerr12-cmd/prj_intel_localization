@@ -310,3 +310,31 @@ document.querySelectorAll('.flip-card').forEach(card => {
   statNumbers.forEach(stat => observer.observe(stat));
 })();
 
+
+// ---------- Language Selector Toggle ----------
+(function () {
+  const langSelector = document.querySelector('.language-selector');
+  const langToggle = document.querySelector('.lang-toggle');
+
+  if (!langSelector || !langToggle) return;
+
+  langToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langSelector.classList.toggle('active');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!langSelector.contains(e.target)) {
+      langSelector.classList.remove('active');
+    }
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && langSelector.classList.contains('active')) {
+      langSelector.classList.remove('active');
+      langToggle.focus();
+    }
+  });
+})();

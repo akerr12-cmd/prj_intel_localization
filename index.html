@@ -39,6 +39,20 @@
   <!-- Existing Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css/style-rtl.css">
+  <link rel="stylesheet" href="css/language-selector.css">
+
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'ar,he,fa,ur,es,fr,de,it,ja,ko,pt,ru,zh-CN',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -73,6 +87,17 @@
 
 <body>
 
+  <!-- Language Selector (Floating) -->
+  <div class="language-selector">
+    <button class="lang-toggle" aria-label="Change language" title="Change Language">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      </svg>
+    </button>
+    <div class="lang-dropdown" id="google_translate_element"></div>
+  </div>
+
   <!-- HERO -->
   <header class="hero">
     <div class="circuit-overlay"></div>
@@ -101,13 +126,13 @@
         <div class="timeline">
           <!-- Card 0 -->
           <section class="cards-section" role="article" aria-labelledby="card-1968">
-            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel founding in 1968">
+            <div class="flip-card" tabindex="0" role="button" aria-labelledby="card-1968" aria-describedby="card-1968-desc">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
                     <h2 id="card-1968">1968</h2>
                   </div>
-                  <h3>Intel Founded</h3>
+                  <h3 id="card-1968-desc">Intel Founded</h3>
                   <div class="flip-img-wrap">
                     <picture>
                       <source type="image/webp" srcset="img/1968_iconography.webp">
@@ -126,13 +151,13 @@
 
           <!-- Card 1 -->
           <section class="cards-section" role="article" aria-labelledby="card-1971">
-            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel 4004 microprocessor from 1971">
+            <div class="flip-card" tabindex="0" role="button" aria-labelledby="card-1971" aria-describedby="card-1971-desc">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
                     <h2 id="card-1971">1971</h2>
                   </div>
-                  <h3>First Microprocessor</h3>
+                  <h3 id="card-1971-desc">First Microprocessor</h3>
 
                   <div class="flip-img-wrap">
                     <picture>
@@ -152,13 +177,13 @@
 
           <!-- Card 2 -->
           <section class="cards-section" role="article" aria-labelledby="card-1978">
-            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel 8086 processor from 1978">
+            <div class="flip-card" tabindex="0" role="button" aria-labelledby="card-1978" aria-describedby="card-1978-desc">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
                     <h2 id="card-1978">1978</h2>
                   </div>
-                  <h3>8086 Processor</h3>
+                  <h3 id="card-1978-desc">8086 Processor</h3>
                   <div class="flip-img-wrap">
                     <picture>
                       <source type="image/webp" srcset="img/1978_iconography.webp">
@@ -180,13 +205,13 @@
 
           <!-- Card 3 -->
           <section class="cards-section" role="article" aria-labelledby="card-1985">
-            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel 386 processor from 1985">
+            <div class="flip-card" tabindex="0" role="button" aria-labelledby="card-1985" aria-describedby="card-1985-desc">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
                     <h2 id="card-1985">1985</h2>
                   </div>
-                  <h3>386 Processor</h3>
+                  <h3 id="card-1985-desc">386 Processor</h3>
                   <div class="flip-img-wrap">
                     <picture>
                       <source type="image/webp" srcset="img/1985_iconography.webp">
@@ -205,13 +230,13 @@
 
           <!-- Card 4 -->
           <section class="cards-section" role="article" aria-labelledby="card-2006">
-            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel greenhouse gas emissions peak in 2006">
+            <div class="flip-card" tabindex="0" role="button" aria-labelledby="card-2006" aria-describedby="card-2006-desc">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
                     <h2 id="card-2006">2006</h2>
                   </div>
-                  <h3>Peak GHG Emissions</h3>
+                  <h3 id="card-2006-desc">Peak GHG Emissions</h3>
                   <div class="flip-img-wrap">
                     <picture>
                       <source type="image/webp" srcset="img/2006_iconography.webp">
@@ -232,13 +257,13 @@
 
           <!-- Card 5 -->
           <section class="cards-section" role="article" aria-labelledby="card-2020">
-            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel RISE strategy launched in 2020">
+            <div class="flip-card" tabindex="0" role="button" aria-labelledby="card-2020" aria-describedby="card-2020-desc">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
                     <h2 id="card-2020">2020</h2>
                   </div>
-                  <h3>RISE Strategy</h3>
+                  <h3 id="card-2020-desc">RISE Strategy</h3>
                   <div class="flip-img-wrap">
                     <picture>
                       <source type="image/webp" srcset="img/2020_iconography.webp">
@@ -257,13 +282,13 @@
 
           <!-- Card 6 -->
           <section class="cards-section" role="article" aria-labelledby="card-2022">
-            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel net-zero commitment announced in 2022">
+            <div class="flip-card" tabindex="0" role="button" aria-labelledby="card-2022" aria-describedby="card-2022-desc">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
                     <h2 id="card-2022">2022</h2>
                   </div>
-                  <h3>Net-Zero by 2040</h3>
+                  <h3 id="card-2022-desc">Net-Zero by 2040</h3>
                   <div class="flip-img-wrap">
                     <picture>
                       <source type="image/webp" srcset="img/2022_iconography.webp">
@@ -283,13 +308,13 @@
 
           <!-- Card 7 -->
           <section class="cards-section" role="article" aria-labelledby="card-2023">
-            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel renewable electricity achievement in 2023">
+            <div class="flip-card" tabindex="0" role="button" aria-labelledby="card-2023" aria-describedby="card-2023-desc">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
                     <h2 id="card-2023">2023</h2>
                   </div>
-                  <h3>Renewable Electricity</h3>
+                  <h3 id="card-2023-desc">Renewable Electricity</h3>
                   <div class="flip-img-wrap">
                     <picture>
                       <source type="image/webp" srcset="img/2023_iconography.webp">
@@ -307,13 +332,13 @@
 
           <!-- Card 8 -->
           <section class="cards-section" role="article" aria-labelledby="card-2024">
-            <div class="flip-card" tabindex="0" role="button" aria-label="Click or press Enter to flip card and read more about Intel Sustainability Summit in 2024">
+            <div class="flip-card" tabindex="0" role="button" aria-labelledby="card-2024" aria-describedby="card-2024-desc">
               <div class="flip-inner">
                 <div class="flip-front">
                   <div class="title-frame accent">
                     <h2 id="card-2024">2024</h2>
                   </div>
-                  <h3>Sustainability Summit</h3>
+                  <h3 id="card-2024-desc">Sustainability Summit</h3>
                   <div class="flip-img-wrap">
                     <picture>
                       <source type="image/webp" srcset="img/2024_iconography.webp">

@@ -1,0 +1,176 @@
+/* ============================
+   LANGUAGE SELECTOR (Floating)
+   ============================ */
+
+.language-selector {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+}
+
+.lang-toggle {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(0, 104, 181, 0.3);
+  color: #0068b5;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 40, 120, 0.15);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.lang-toggle:hover {
+  transform: scale(1.08);
+  background: #f0f7ff;
+  border-color: rgba(0, 104, 181, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 40, 120, 0.25);
+}
+
+.lang-toggle:active {
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 40, 120, 0.15);
+}
+
+.lang-toggle:focus-visible {
+  outline: 3px solid #0068b5;
+  outline-offset: 3px;
+}
+
+.lang-toggle:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.lang-toggle svg {
+  pointer-events: none;
+}
+
+/* Dropdown container */
+.lang-dropdown {
+  position: absolute;
+  top: 56px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid rgba(0, 104, 181, 0.2);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 8px 24px rgba(0, 40, 120, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 200px;
+}
+
+.language-selector.active .lang-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Hide Google's branding and clean up the widget */
+.lang-dropdown .goog-te-gadget {
+  font-family: var(--IntelFonts);
+  font-size: 0;
+}
+
+.lang-dropdown .goog-te-gadget > span {
+  display: none !important;
+}
+
+.lang-dropdown .goog-te-gadget > div {
+  display: inline-block;
+  width: 100%;
+}
+
+.lang-dropdown select.goog-te-combo {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid rgba(0, 104, 181, 0.2);
+  border-radius: 8px;
+  font-family: var(--IntelFonts);
+  font-size: 0.95rem;
+  color: var(--intel-drkblue);
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-dropdown select.goog-te-combo:hover {
+  border-color: rgba(0, 104, 181, 0.4);
+  background: rgba(255, 255, 255, 1);
+}
+
+.lang-dropdown select.goog-te-combo:focus {
+  outline: none;
+  border-color: rgba(0, 104, 181, 0.6);
+  box-shadow: 0 0 0 3px rgba(0, 104, 181, 0.1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .language-selector {
+    top: 16px;
+    right: 16px;
+  }
+
+  .lang-toggle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .lang-toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .lang-toggle {
+    background: rgba(20, 30, 50, 0.95);
+    border-color: rgba(0, 153, 102, 0.4);
+    color: var(--intel-lgtblue);
+    box-shadow: 0 4px 16px rgba(0, 153, 102, 0.2);
+  }
+
+  .lang-toggle:hover {
+    background: rgba(30, 40, 60, 0.98);
+    border-color: rgba(0, 153, 102, 0.6);
+    box-shadow: 0 6px 20px rgba(0, 153, 102, 0.35);
+  }
+
+  .lang-dropdown {
+    background: rgba(17, 54, 129, 0.98);
+    border-color: rgba(77, 166, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  .lang-dropdown select.goog-te-combo {
+    background: rgba(20, 30, 50, 0.9);
+    border-color: rgba(77, 166, 255, 0.25);
+    color: var(--intel-lgtblue);
+  }
+
+  .lang-dropdown select.goog-te-combo:hover {
+    border-color: rgba(77, 166, 255, 0.4);
+    background: rgba(20, 30, 50, 1);
+  }
+
+  .lang-dropdown select.goog-te-combo:focus {
+    border-color: rgba(77, 166, 255, 0.6);
+    box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.2);
+  }
+}

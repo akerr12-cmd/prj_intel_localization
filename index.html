@@ -349,6 +349,14 @@
               <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
             </div>
 
+            <!-- Consent Checkbox -->
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="subscriptionConsent" required>
+              <label class="form-check-label" for="subscriptionConsent">
+                I understand this is a demonstration site and no real subscriptions are processed.
+              </label>
+            </div>
+
             <button type="submit" class="btn btn-primary w-100">
               Subscribe
             </button>
@@ -576,6 +584,25 @@
 
         <p class="mb-3">
           Your message has been successfully submitted. Thank you for reaching out!
+        </p>
+
+        <button class="btn btn-primary w-100 mt-2" data-bs-dismiss="modal" aria-label="Close">
+          Close
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBSCRIPTION SUCCESS MODAL -->
+  <div class="modal fade" id="subscriptionSuccessModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4 text-center">
+
+        <h2 class="fw-bold mb-3">Thank You for Subscribing!</h2>
+
+        <p class="mb-3">
+          You've successfully subscribed to Intel Sustainability Updates. We'll keep you informed about our latest sustainability initiatives and achievements.
         </p>
 
         <button class="btn btn-primary w-100 mt-2" data-bs-dismiss="modal" aria-label="Close">

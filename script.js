@@ -155,6 +155,22 @@
     this.reset();
   });
 
+  // Handle subscription form submission
+  document.querySelector('#intelModal form').addEventListener('submit', function (e) {
+    e.preventDefault(); // prevent real submission
+
+    // Close the subscription modal
+    const subscriptionModal = bootstrap.Modal.getInstance(document.getElementById('intelModal'));
+    subscriptionModal.hide();
+
+    // Show the thank you modal
+    const thankYouModal = new bootstrap.Modal(document.getElementById('subscriptionSuccessModal'));
+    thankYouModal.show();
+
+    // Reset the form
+    this.reset();
+  });
+
   (function () {
   const timeline = document.querySelector('.timeline');
   const cards = document.querySelectorAll('.cards-section');

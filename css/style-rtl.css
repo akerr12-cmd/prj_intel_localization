@@ -34,6 +34,22 @@ body.rtl-active .timeline .cards-section {
 }
 
 /* Note: Timeline navigation buttons (.left-btn, .right-btn) remain unchanged in RTL mode */
+/* Explicitly prevent any transformations on timeline buttons */
+body.rtl-active .timeline-btn {
+  transform: none !important;
+}
+
+body.rtl-active .timeline-btn.left-btn {
+  transform: none !important;
+}
+
+body.rtl-active .timeline-btn.right-btn {
+  transform: none !important;
+}
+
+body.rtl-active .timeline-btn svg {
+  transform: none !important;
+}
 
 /* Indicator pills reverse direction */
 body.rtl-active .timeline-indicators {

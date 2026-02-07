@@ -617,6 +617,13 @@ body.rtl-active .flip-back p {
   line-height: 1.6;
 }
 
+/* Bootstrap danger red for required fields */
+.form-check-input:invalid {
+  outline: 2px solid #dc3545; /* Bootstrap danger red */
+  outline-offset: 2px;
+}
+
+
 
 /* ----------------------------------------------------------
    ✨ ADDED: Footer link hover improvements

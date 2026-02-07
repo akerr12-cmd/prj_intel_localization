@@ -138,3 +138,20 @@
 
   applyDirection();
 });
+
+
+  document.querySelector('#contactModal form').addEventListener('submit', function (e) {
+    e.preventDefault(); // prevent real submission
+
+    // Close the contact modal
+    const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+    contactModal.hide();
+
+    // Show the success modal
+    const successModal = new bootstrap.Modal(document.getElementById('messageSentModal'));
+    successModal.show();
+
+    // Reset the form
+    this.reset();
+  });
+

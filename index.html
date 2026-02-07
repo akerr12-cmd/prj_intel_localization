@@ -309,39 +309,36 @@
     <div class="modal fade" id="intelModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-4">
-          <div class="w-100">
 
-            <h3 class="text-center mb-3 fw-bold">Subscribe to Intel Sustainability Updates</h3>
+          <h3 class="text-center mb-3 fw-bold">Subscribe to Intel Sustainability Updates</h3>
 
-            <form aria-label="Subscription form">
+          <form aria-label="Subscription form">
 
-              <!-- First + Last Name -->
-              <div class="row mb-3">
-                <div class="col">
-                  <label for="firstName" class="form-label">First Name</label>
-                  <input type="text" id="firstName" class="form-control" placeholder="First name" required>
-                </div>
-
-                <div class="col">
-                  <label for="lastName" class="form-label">Last Name</label>
-                  <input type="text" id="lastName" class="form-control" placeholder="Last name" required>
-                </div>
+            <!-- First + Last Name -->
+            <div class="row mb-3">
+              <div class="col">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" id="firstName" class="form-control" placeholder="First name" required>
               </div>
 
-              <!-- Email -->
-              <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+              <div class="col">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" id="lastName" class="form-control" placeholder="Last name" required>
               </div>
+            </div>
 
-              <button type="submit" class="btn btn-primary w-100">
-                Subscribe
-              </button>
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+            </div>
 
-            </form>
+            <button type="submit" class="btn btn-primary w-100">
+              Subscribe
+            </button>
 
+          </form>
 
-          </div>
         </div>
       </div>
     </div>
@@ -349,12 +346,230 @@
 
   <footer class="bg-dark text-light py-4 mt-5">
     <div class="container text-center">
+
       <p class="mb-1">© 2026 Intel Corporation</p>
-      <a href="#" class="text-light me-3">Privacy Policy</a>
-      <a href="#" class="text-light me-3">Terms of Use</a>
-      <a href="#" class="text-light">Contact</a>
+
+      <!-- Modal Triggers -->
+      <a href="#privacyModal" class="text-light me-3" data-bs-toggle="modal" data-bs-target="#privacyModal">
+        Privacy Policy
+      </a>
+
+      <a href="#termsModal" class="text-light me-3" data-bs-toggle="modal" data-bs-target="#termsModal">
+        Terms of Use
+      </a>
+
+      <a href="#contactModal" class="text-light" data-bs-toggle="modal" data-bs-target="#contactModal">
+        Contact
+      </a>
+
     </div>
   </footer>
+
+  <!-- PRIVACY POLICY MODAL -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content p-4">
+
+        <h3 class="fw-bold mb-3 text-center">Privacy Policy</h3>
+        <p><strong>Last updated:</strong> February 2026</p>
+
+        <p>
+          This website is a demonstration project created for educational and design purposes.
+          No personal data is collected, stored, or shared beyond the information you voluntarily
+          submit through the subscription form.
+        </p>
+
+        <h5 class="fw-bold mt-3">Information We Collect</h5>
+        <p>
+          First Name, Last Name, and Email Address submitted voluntarily through the subscription form.
+        </p>
+
+        <h5 class="fw-bold mt-3">How We Use Your Information</h5>
+        <p>Submitted information is used solely to:</p>
+        <ul>
+          <li>Demonstrate how a subscription workflow might function</li>
+          <li>Illustrate UI/UX patterns for form handling</li>
+          <li>Showcase mock sustainability‑related communications</li>
+        </ul>
+        <p>No actual marketing emails are sent.</p>
+
+        <h5 class="fw-bold mt-3">Data Storage</h5>
+        <p>All submitted information is:</p>
+        <ul>
+          <li>Not stored in a database</li>
+          <li>Not shared with third parties</li>
+          <li>Not used for analytics or advertising</li>
+        </ul>
+        <p>This site does not use cookies, tracking scripts, or analytics tools.</p>
+
+        <h5 class="fw-bold mt-3">Third‑Party Services</h5>
+        <p>This demo site uses:</p>
+        <ul>
+          <li>Bootstrap for layout</li>
+          <li>Local images and assets</li>
+          <li>No external data‑collection services</li>
+        </ul>
+
+        <h5 class="fw-bold mt-3">Your Rights</h5>
+        <p>
+          Because no real data is stored, you may request removal of your submitted information at any time
+          by contacting the site administrator. Any submitted data is deleted immediately.
+        </p>
+
+        <h5 class="fw-bold mt-3">Contact</h5>
+        <p>
+          For questions about this mock privacy policy, please contact the site creator.
+        </p>
+
+        <button class="btn btn-primary w-100 mt-3" data-bs-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- TERMS OF USE MODAL -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content p-4">
+
+        <h3 class="fw-bold mb-3 text-center">Terms of Use</h3>
+        <p><strong>Last updated:</strong> February 2026</p>
+
+        <h5 class="fw-bold mt-3">Purpose of the Site</h5>
+        <p>
+          This website is a non‑commercial demonstration created for educational, design, and prototyping
+          purposes. It showcases UI components, responsive layouts, and sustainability‑themed content.
+          It is not an official Intel website and does not represent Intel’s official communications,
+          commitments, or policies.
+        </p>
+
+        <h5 class="fw-bold mt-3">Use of Content</h5>
+        <p>
+          All text, images, and UI components on this site are for demonstration only and are not intended
+          for commercial use. Content may be adapted, modified, or removed at any time as part of the
+          design and development process.
+        </p>
+
+        <h5 class="fw-bold mt-3">User Responsibilities</h5>
+        <p>By using this site, you agree not to:</p>
+        <ul>
+          <li>Misuse or attempt to disrupt the site</li>
+          <li>Submit harmful, malicious, or inappropriate content</li>
+          <li>Attempt unauthorized access to systems or code</li>
+        </ul>
+
+        <h5 class="fw-bold mt-3">Disclaimer</h5>
+        <p>
+          This site is provided “as‑is” for demonstration purposes. No warranties, guarantees, or service
+          commitments are made regarding accuracy, availability, or performance. The site creator is not
+          responsible for errors, omissions, or any damages arising from use of this demo.
+        </p>
+
+        <h5 class="fw-bold mt-3">Limitation of Liability</h5>
+        <p>
+          To the fullest extent permitted by law, the site creator is not liable for any direct, indirect,
+          incidental, or consequential damages resulting from the use or inability to use this website.
+        </p>
+
+        <h5 class="fw-bold mt-3">Changes to These Terms</h5>
+        <p>
+          These Terms of Use may be updated periodically to reflect improvements, design changes, or
+          additional features added to the demonstration site.
+        </p>
+
+        <button class="btn btn-primary w-100 mt-3" data-bs-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CONTACT MODAL -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content p-4">
+
+        <h3 class="fw-bold mb-3 text-center">Contact Us</h3>
+
+        <form aria-label="Contact form">
+
+          <!-- Name Row -->
+          <div class="row mb-3">
+            <div class="col">
+              <label for="contactFirstName" class="form-label">First Name</label>
+              <input type="text" id="contactFirstName" class="form-control" placeholder="First name" required>
+            </div>
+
+            <div class="col">
+              <label for="contactLastName" class="form-label">Last Name</label>
+              <input type="text" id="contactLastName" class="form-control" placeholder="Last name" required>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="contactEmail" class="form-label">Email Address</label>
+            <input type="email" id="contactEmail" class="form-control" placeholder="name@example.com" required>
+          </div>
+
+          <!-- Subject Dropdown -->
+          <div class="mb-3">
+            <label for="contactSubject" class="form-label">Subject</label>
+            <select id="contactSubject" class="form-select" required>
+              <option value="" selected disabled>Select a topic</option>
+              <option>General Inquiry</option>
+              <option>Sustainability Questions</option>
+              <option>Website Feedback</option>
+              <option>Media / Press</option>
+              <option>Technical Question</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div class="mb-3">
+            <label for="contactMessage" class="form-label">Message</label>
+            <textarea id="contactMessage" class="form-control" rows="4" placeholder="How can we help you?"
+              required></textarea>
+          </div>
+
+          <!-- Consent Checkbox -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="contactConsent" required>
+            <label class="form-check-label" for="contactConsent">
+              I understand this is a demonstration site and no real messages are sent.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+ <!-- MESSAGE SENT CONFIRMATION MODAL -->
+<div class="modal fade" id="messageSentModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4 text-center">
+
+      <h3 class="fw-bold mb-3">Message Sent</h3>
+
+      <p class="mb-3">
+        Your message has been successfully submitted. Thank you for reaching out!
+      </p>
+
+      <button class="btn btn-primary w-100 mt-2" data-bs-dismiss="modal" aria-label="Close">
+        Close
+      </button>
+
+    </div>
+  </div>
+</div>
+
 
 
 
